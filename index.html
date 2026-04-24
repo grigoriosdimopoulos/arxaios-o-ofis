@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ουρομπόρος Office – Web Agency</title>
+  <meta name="description" content="Δημιουργούμε websites, custom solutions και ψηφιακές εμπειρίες που εντυπωσιάζουν." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="16" stroke="url(#logoGrad)" stroke-width="3" fill="none"/>
+        <path d="M20 8 C28 8 32 14 32 20 C32 26 28 32 20 32 C12 32 8 26 8 20 C8 14 12 8 20 8" stroke="url(#logoGrad)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="20" cy="8" r="2.5" fill="url(#logoGrad)"/>
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#7C3AED"/>
+            <stop offset="1" stop-color="#06B6D4"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="logo-text">Ουρομπόρος<span class="logo-accent"> Office</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Υπηρεσίες</a>
+      <a href="#technologies">Τεχνολογίες</a>
+      <a href="#process">Διαδικασία</a>
+      <a href="#pricing">Τιμές</a>
+      <a href="#contact" class="btn-nav">Επικοινωνία</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="particles"></canvas>
+  <div class="hero-glow glow-1"></div>
+  <div class="hero-glow glow-2"></div>
+  <div class="container hero-content">
+    <div class="hero-badge reveal">
+      <span class="badge-dot"></span>
+      Διαθέσιμοι για νέα projects
+    </div>
+    <h1 class="hero-title reveal">
+      Χτίζουμε το<br/>
+      <span class="gradient-text animated-gradient">ψηφιακό σας όραμα</span>
+    </h1>
+    <p class="hero-sub reveal">
+      Από landing pages ως πλήρεις web εφαρμογές, e-commerce και custom solutions —
+      δημιουργούμε ψηφιακές εμπειρίες που μετατρέπουν επισκέπτες σε πελάτες.
+    </p>
+    <div class="hero-ctas reveal">
+      <a href="#pricing" class="btn btn-primary">
+        Δείτε τα πλάνα
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#services" class="btn btn-ghost">Οι υπηρεσίες μας</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat"><span class="stat-num" data-target="150">0</span><span>+</span><p>Projects</p></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="98">0</span><span>%</span><p>Ικανοποίηση</p></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="7">0</span><span>+</span><p>Χρόνια</p></div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Τι κάνουμε</span>
+      <h2>Υπηρεσίες που<br/><span class="gradient-text">κάνουν τη διαφορά</span></h2>
+      <p>Καλύπτουμε κάθε πτυχή της ψηφιακής σας παρουσίας.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal" data-delay="0">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Websites & Landing Pages</h3>
+        <p>Σχεδιάζουμε και αναπτύσσουμε websites που εντυπωσιάζουν, φορτώνουν γρήγορα και μετατρέπουν επισκέπτες σε πελάτες.</p>
+        <ul class="service-list">
+          <li>Corporate websites</li>
+          <li>Landing pages</li>
+          <li>Portfolio sites</li>
+          <li>Blogs & Νέα</li>
+        </ul>
+      </div>
+      <div class="service-card reveal" data-delay="100">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 3h18v18H3zM9 3v18M15 3v18M3 9h18M3 15h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>E-Commerce</h3>
+        <p>Ολοκληρωμένα ηλεκτρονικά καταστήματα με διαχείριση αποθέματος, πληρωμές και αυτοματισμούς.</p>
+        <ul class="service-list">
+          <li>WooCommerce / Shopify</li>
+          <li>Custom e-shops</li>
+          <li>Ενσωμάτωση πληρωμών</li>
+          <li>ERP συνδέσεις</li>
+        </ul>
+      </div>
+      <div class="service-card reveal" data-delay="200">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Web Εφαρμογές</h3>
+        <p>Custom web applications για τις μοναδικές ανάγκες της επιχείρησής σας — από CRM ως πλατφόρμες SaaS.</p>
+        <ul class="service-list">
+          <li>SaaS πλατφόρμες</li>
+          <li>Dashboards & Panels</li>
+          <li>APIs & Integrations</li>
+          <li>PWA εφαρμογές</li>
+        </ul>
+      </div>
+      <div class="service-card reveal" data-delay="0">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>UI/UX Design</h3>
+        <p>Σχεδιασμός εμπειρίας χρήστη που είναι όμορφος, λειτουργικός και μετρήσιμα αποτελεσματικός.</p>
+        <ul class="service-list">
+          <li>Wireframes & Prototypes</li>
+          <li>Design Systems</li>
+          <li>Branding</li>
+          <li>Responsive Design</li>
+        </ul>
+      </div>
+      <div class="service-card reveal" data-delay="100">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>SEO & Performance</h3>
+        <p>Βελτιστοποίηση για μηχανές αναζήτησης και απόδοση που σας φέρνει στην κορυφή των αποτελεσμάτων.</p>
+        <ul class="service-list">
+          <li>Technical SEO</li>
+          <li>Core Web Vitals</li>
+          <li>Content Strategy</li>
+          <li>Local SEO</li>
+        </ul>
+      </div>
+      <div class="service-card reveal" data-delay="200">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Hosting & Συντήρηση</h3>
+        <p>Αξιόπιστο hosting, τακτικά backups, updates και 24/7 monitoring για να είστε πάντα online.</p>
+        <ul class="service-list">
+          <li>Managed Hosting</li>
+          <li>SSL & Security</li>
+          <li>Μηνιαία συντήρηση</li>
+          <li>Τεχνική υποστήριξη</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGIES -->
+<section class="section section-dark" id="technologies">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Stack</span>
+      <h2>Τεχνολογίες<br/><span class="gradient-text">αιχμής</span></h2>
+      <p>Χρησιμοποιούμε τα καλύτερα εργαλεία για κάθε project.</p>
+    </div>
+    <div class="tech-grid reveal">
+      <div class="tech-item" title="React">
+        <div class="tech-logo react-logo">⚛</div>
+        <span>React</span>
+      </div>
+      <div class="tech-item" title="Next.js">
+        <div class="tech-logo">▲</div>
+        <span>Next.js</span>
+      </div>
+      <div class="tech-item" title="TypeScript">
+        <div class="tech-logo ts-logo">TS</div>
+        <span>TypeScript</span>
+      </div>
+      <div class="tech-item" title="Node.js">
+        <div class="tech-logo node-logo">⬡</div>
+        <span>Node.js</span>
+      </div>
+      <div class="tech-item" title="Python">
+        <div class="tech-logo py-logo">🐍</div>
+        <span>Python</span>
+      </div>
+      <div class="tech-item" title="PostgreSQL">
+        <div class="tech-logo pg-logo">🐘</div>
+        <span>PostgreSQL</span>
+      </div>
+      <div class="tech-item" title="MongoDB">
+        <div class="tech-logo mongo-logo">🍃</div>
+        <span>MongoDB</span>
+      </div>
+      <div class="tech-item" title="Docker">
+        <div class="tech-logo docker-logo">🐳</div>
+        <span>Docker</span>
+      </div>
+      <div class="tech-item" title="AWS">
+        <div class="tech-logo aws-logo">☁</div>
+        <span>AWS</span>
+      </div>
+      <div class="tech-item" title="Vercel">
+        <div class="tech-logo">△</div>
+        <span>Vercel</span>
+      </div>
+      <div class="tech-item" title="Tailwind CSS">
+        <div class="tech-logo tw-logo">~</div>
+        <span>Tailwind</span>
+      </div>
+      <div class="tech-item" title="GraphQL">
+        <div class="tech-logo gql-logo">◈</div>
+        <span>GraphQL</span>
+      </div>
+    </div>
+
+    <div class="marquee-wrapper reveal">
+      <div class="marquee-track">
+        <span>React</span><span>Next.js</span><span>Vue.js</span><span>TypeScript</span>
+        <span>Node.js</span><span>Python</span><span>Django</span><span>FastAPI</span>
+        <span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>Docker</span>
+        <span>Kubernetes</span><span>AWS</span><span>Vercel</span><span>Tailwind CSS</span>
+        <span>GraphQL</span><span>REST APIs</span><span>Stripe</span><span>WordPress</span>
+        <!-- duplicate for infinite loop -->
+        <span>React</span><span>Next.js</span><span>Vue.js</span><span>TypeScript</span>
+        <span>Node.js</span><span>Python</span><span>Django</span><span>FastAPI</span>
+        <span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>Docker</span>
+        <span>Kubernetes</span><span>AWS</span><span>Vercel</span><span>Tailwind CSS</span>
+        <span>GraphQL</span><span>REST APIs</span><span>Stripe</span><span>WordPress</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Πώς δουλεύουμε</span>
+      <h2>Απλή διαδικασία,<br/><span class="gradient-text">εξαιρετικά αποτελέσματα</span></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal" data-delay="0">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h3>Discovery</h3>
+          <p>Καταλαβαίνουμε τους στόχους σας, το κοινό σας και τις ανάγκες σας. Αναλύουμε ανταγωνιστές και ορίζουμε scope.</p>
+        </div>
+      </div>
+      <div class="process-step reveal" data-delay="100">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h3>Design</h3>
+          <p>Δημιουργούμε wireframes, mockups και prototypes. Εγκρίνετε πριν γραφτεί κώδικας.</p>
+        </div>
+      </div>
+      <div class="process-step reveal" data-delay="200">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h3>Development</h3>
+          <p>Γράφουμε clean, optimized κώδικα. Σας ενημερώνουμε σε κάθε βήμα με πρόσβαση σε staging environment.</p>
+        </div>
+      </div>
+      <div class="process-step reveal" data-delay="300">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <h3>Launch & Support</h3>
+          <p>Deployment, testing, SEO setup. Και μετά το launch — είμαστε εδώ για συντήρηση και εξέλιξη.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-dark" id="pricing">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Κοστολόγιο</span>
+      <h2>Διαφανείς τιμές,<br/><span class="gradient-text">χωρίς εκπλήξεις</span></h2>
+      <p>Επιλέξτε το πλάνο που ταιριάζει στις ανάγκες σας.</p>
+    </div>
+
+    <div class="pricing-toggle reveal">
+      <span class="toggle-label active" id="labelOne">Κατασκευή</span>
+      <button class="toggle-btn" id="pricingToggle" role="switch" aria-checked="false">
+        <span class="toggle-thumb"></span>
+      </button>
+      <span class="toggle-label" id="labelTwo">Συντήρηση</span>
+    </div>
+
+    <!-- CONSTRUCTION PLANS -->
+    <div class="pricing-grid" id="constructionPlans">
+      <div class="pricing-card reveal" data-delay="0">
+        <div class="plan-header">
+          <span class="plan-name">Starter</span>
+          <div class="plan-price">
+            <span class="price-amount">€490</span>
+            <span class="price-unit">εφάπαξ</span>
+          </div>
+          <p class="plan-desc">Ιδανικό για μικρές επιχειρήσεις και freelancers.</p>
+        </div>
+        <ul class="plan-features">
+          <li class="yes">Landing page ή 5-σέλιδο site</li>
+          <li class="yes">Responsive design</li>
+          <li class="yes">SEO βασικό setup</li>
+          <li class="yes">Contact form</li>
+          <li class="yes">Google Analytics</li>
+          <li class="yes">SSL πιστοποιητικό</li>
+          <li class="no">E-Commerce λειτουργίες</li>
+          <li class="no">Custom animations</li>
+          <li class="no">CMS integration</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Ξεκινήστε</a>
+      </div>
+      <div class="pricing-card featured reveal" data-delay="100">
+        <div class="plan-badge">Δημοφιλές</div>
+        <div class="plan-header">
+          <span class="plan-name">Business</span>
+          <div class="plan-price">
+            <span class="price-amount">€1.290</span>
+            <span class="price-unit">εφάπαξ</span>
+          </div>
+          <p class="plan-desc">Για επιχειρήσεις που θέλουν να ξεχωρίσουν.</p>
+        </div>
+        <ul class="plan-features">
+          <li class="yes">Έως 15 σελίδες</li>
+          <li class="yes">Custom design</li>
+          <li class="yes">CMS (WordPress / Headless)</li>
+          <li class="yes">Advanced SEO</li>
+          <li class="yes">Blog / Νέα</li>
+          <li class="yes">Speed optimization</li>
+          <li class="yes">Custom animations</li>
+          <li class="yes">Social media integration</li>
+          <li class="no">E-Commerce shop</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Ξεκινήστε</a>
+      </div>
+      <div class="pricing-card reveal" data-delay="200">
+        <div class="plan-header">
+          <span class="plan-name">Enterprise</span>
+          <div class="plan-price">
+            <span class="price-amount">Custom</span>
+            <span class="price-unit">κατόπιν επικοινωνίας</span>
+          </div>
+          <p class="plan-desc">Web applications, e-commerce και custom solutions.</p>
+        </div>
+        <ul class="plan-features">
+          <li class="yes">Απεριόριστες σελίδες</li>
+          <li class="yes">Custom web application</li>
+          <li class="yes">E-Commerce πλήρες</li>
+          <li class="yes">API integrations</li>
+          <li class="yes">Βάση δεδομένων</li>
+          <li class="yes">User authentication</li>
+          <li class="yes">Dashboard / Admin panel</li>
+          <li class="yes">Dedicated project manager</li>
+          <li class="yes">SLA support</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Επικοινωνήστε</a>
+      </div>
+    </div>
+
+    <!-- MAINTENANCE PLANS -->
+    <div class="pricing-grid hidden" id="maintenancePlans">
+      <div class="pricing-card reveal" data-delay="0">
+        <div class="plan-header">
+          <span class="plan-name">Basic Care</span>
+          <div class="plan-price">
+            <span class="price-amount">€29</span>
+            <span class="price-unit">/ μήνα</span>
+          </div>
+          <p class="plan-desc">Βασική φροντίδα για μικρά sites.</p>
+        </div>
+        <ul class="plan-features">
+          <li class="yes">Μηνιαίο backup</li>
+          <li class="yes">Security updates</li>
+          <li class="yes">Uptime monitoring</li>
+          <li class="yes">1 ώρα αλλαγών/μήνα</li>
+          <li class="no">Performance reports</li>
+          <li class="no">Priority support</li>
+          <li class="no">Emergency response</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Εγγραφή</a>
+      </div>
+      <div class="pricing-card featured reveal" data-delay="100">
+        <div class="plan-badge">Συνιστάται</div>
+        <div class="plan-header">
+          <span class="plan-name">Pro Care</span>
+          <div class="plan-price">
+            <span class="price-amount">€79</span>
+            <span class="price-unit">/ μήνα</span>
+          </div>
+          <p class="plan-desc">Πλήρης κάλυψη για επαγγελματικά sites.</p>
+        </div>
+        <ul class="plan-features">
+          <li class="yes">Εβδομαδιαίο backup</li>
+          <li class="yes">Security & plugin updates</li>
+          <li class="yes">24/7 Uptime monitoring</li>
+          <li class="yes">3 ώρες αλλαγών/μήνα</li>
+          <li class="yes">Μηνιαίο performance report</li>
+          <li class="yes">Priority email support</li>
+          <li class="no">Emergency response</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Εγγραφή</a>
+      </div>
+      <div class="pricing-card reveal" data-delay="200">
+        <div class="plan-header">
+          <span class="plan-name">Agency Care</span>
+          <div class="plan-price">
+            <span class="price-amount">€199</span>
+            <span class="price-unit">/ μήνα</span>
+          </div>
+          <p class="plan-desc">Για web apps και e-commerce με κρίσιμες ανάγκες.</p>
+        </div>
+        <ul class="plan-features">
+          <li class="yes">Ημερήσιο backup</li>
+          <li class="yes">Πλήρης security suite</li>
+          <li class="yes">24/7 monitoring & alerts</li>
+          <li class="yes">8 ώρες αλλαγών/μήνα</li>
+          <li class="yes">Εβδομαδιαίο report</li>
+          <li class="yes">Phone & email support</li>
+          <li class="yes">2h emergency response</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Εγγραφή</a>
+      </div>
+    </div>
+
+    <p class="pricing-note reveal">
+      Όλες οι τιμές δεν συμπεριλαμβάνουν ΦΠΑ. Προσφέρουμε έκπτωση 15% για ετήσια συνδρομή.
+      <a href="#contact">Μιλήστε μαζί μας</a> για custom τιμολόγηση.
+    </p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Αξιολογήσεις</span>
+      <h2>Τι λένε<br/><span class="gradient-text">οι πελάτες μας</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal" data-delay="0">
+        <div class="stars">★★★★★</div>
+        <p>"Η ομάδα της Ουρομπόρος Office έφτιαξε το e-shop μας από το μηδέν. Οι πωλήσεις μας τριπλασιάστηκαν στον πρώτο μήνα."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ΜΚ</div>
+          <div><strong>Μαρία Κοντού</strong><span>CEO, Boutique Moda</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" data-delay="100">
+        <div class="stars">★★★★★</div>
+        <p>"Εξαιρετικοί επαγγελματίες. Το site μας φορτώνει σε κάτω από 1 δευτερόλεπτο και βρισκόμαστε στην πρώτη σελίδα της Google."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ΔΠ</div>
+          <div><strong>Δημήτρης Παπαδόπουλος</strong><span>Founder, TechStartup.gr</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" data-delay="200">
+        <div class="stars">★★★★★</div>
+        <p>"Το custom CRM που ανέπτυξαν για εμάς εξοικονόμησε 20 ώρες εβδομαδιαίως στη διαχείριση πελατών. Αδύνατο να το φανταστώ διαφορετικά."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ΑΤ</div>
+          <div><strong>Αλέξης Τριανταφύλλου</strong><span>Manager, Atlas Logistics</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-dark" id="contact">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-info reveal">
+        <span class="section-tag">Επικοινωνία</span>
+        <h2>Έτοιμοι να<br/><span class="gradient-text">ξεκινήσουμε;</span></h2>
+        <p>Πείτε μας για το project σας και θα επικοινωνήσουμε εντός 24 ωρών με μια δωρεάν εκτίμηση.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span>hello@ouroboros.gr</span>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.23h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.1a16 16 0 006.29 6.29l1.14-1.14a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span>+30 210 000 0000</span>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span>Αθήνα, Ελλάδα</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal" id="contactForm" data-delay="100">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Ονοματεπώνυμο</label>
+            <input type="text" id="name" placeholder="Γιάννης Παπαδόπουλος" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="giannis@company.gr" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="service">Υπηρεσία</label>
+          <select id="service">
+            <option value="">Επιλέξτε υπηρεσία...</option>
+            <option>Website / Landing Page</option>
+            <option>E-Commerce</option>
+            <option>Web Εφαρμογή</option>
+            <option>Συντήρηση & Hosting</option>
+            <option>Άλλο</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Μήνυμα</label>
+          <textarea id="message" rows="4" placeholder="Περιγράψτε το project σας..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          Αποστολή
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p class="form-note">Δωρεάν εκτίμηση εντός 24 ωρών. Χωρίς δεσμεύσεις.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="16" stroke="url(#logoGrad2)" stroke-width="3" fill="none"/>
+          <path d="M20 8 C28 8 32 14 32 20 C32 26 28 32 20 32 C12 32 8 26 8 20 C8 14 12 8 20 8" stroke="url(#logoGrad2)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="20" cy="8" r="2.5" fill="url(#logoGrad2)"/>
+          <defs>
+            <linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#7C3AED"/>
+              <stop offset="1" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">Ουρομπόρος<span class="logo-accent"> Office</span></span>
+      </a>
+      <p>Χτίζουμε ψηφιακές εμπειρίες που εντυπωσιάζουν και αποδίδουν.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Υπηρεσίες</h4>
+        <a href="#services">Websites</a>
+        <a href="#services">E-Commerce</a>
+        <a href="#services">Web Apps</a>
+        <a href="#services">SEO</a>
+      </div>
+      <div class="footer-col">
+        <h4>Εταιρεία</h4>
+        <a href="#process">Διαδικασία</a>
+        <a href="#pricing">Τιμές</a>
+        <a href="#testimonials">Αξιολογήσεις</a>
+        <a href="#contact">Επικοινωνία</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ουρομπόρος Office. Όλα τα δικαιώματα κατοχυρωμένα.</p>
+    <div class="footer-legal">
+      <a href="#">Πολιτική Απορρήτου</a>
+      <a href="#">Όροι Χρήσης</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
