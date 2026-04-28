@@ -5,6 +5,7 @@ const i18n = {
     'nav.services':     'Services',
     'nav.request':      'Custom Request',
     'nav.contact':      'Contact',
+    'hero.eyebrow':     'Premium Creative Studio',
     'hero.title':       'Uroboru Office',
     'hero.sub':         'Eternal Cycles. Modern Solutions.',
     'hero.cta':         'Explore Services',
@@ -70,13 +71,16 @@ const i18n = {
     'contact.email':    'Email',
     'contact.hours':    'Business Hours',
     'contact.hours.val':'Mon–Fri, 09:00–18:00',
-    'footer.copy':      '© 2026 Uroboru Office. The cycle continues.',
+    'about.body':       'We are a creative studio rooted in a singular idea — that every great endeavour is a cycle. We begin with your vision, refine it through mastery, and deliver something timeless. Like the ouroboros, our process never breaks.',
+    'footer.tagline':   'The cycle continues.',
+    'footer.copy':      '© 2026 Uroboru Office. All rights reserved.',
   },
   el: {
     'nav.about':        'Σχετικά',
     'nav.services':     'Υπηρεσίες',
     'nav.request':      'Αίτηση',
     'nav.contact':      'Επικοινωνία',
+    'hero.eyebrow':     'Premium Δημιουργικό Στούντιο',
     'hero.title':       'Uroboru Office',
     'hero.sub':         'Αιώνιοι Κύκλοι. Σύγχρονες Λύσεις.',
     'hero.cta':         'Οι Υπηρεσίες μας',
@@ -142,7 +146,9 @@ const i18n = {
     'contact.email':    'Email',
     'contact.hours':    'Ώρες Λειτουργίας',
     'contact.hours.val':'Δευ–Παρ, 09:00–18:00',
-    'footer.copy':      '© 2026 Uroboru Office. Ο κύκλος συνεχίζεται.',
+    'about.body':       'Είμαστε ένα δημιουργικό στούντιο που βασίζεται σε μια ενιαία ιδέα — ότι κάθε σπουδαία προσπάθεια είναι ένας κύκλος. Ξεκινάμε με το όραμά σας, το εξελίσσουμε μέσα από δεξιοτεχνία και παραδίδουμε κάτι διαχρονικό.',
+    'footer.tagline':   'Ο κύκλος συνεχίζεται.',
+    'footer.copy':      '© 2026 Uroboru Office. Με επιφύλαξη παντός δικαιώματος.',
   }
 };
 
