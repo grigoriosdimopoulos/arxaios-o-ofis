@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uroboru Office</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="scrollToSection('hero')">
+        <div class="logo-snake-wrap">
+          <svg class="logo-ouroboros" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="22" fill="none" stroke="url(#logoGrad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="120 18"/>
+            <polygon points="30,4 34,14 26,14" fill="url(#logoGrad)" transform="rotate(-10,30,30)"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c8a96e"/>
+                <stop offset="100%" stop-color="#8b6914"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Uroboru Office</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#request" data-i18n="nav.request">Custom Request</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="lang-btn" id="langBtn" onclick="toggleLang()">
+          <span id="langLabel">ΕΛ</span>
+        </button>
+        <button class="burger" id="burger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="particle" style="--x:10%;--y:20%;--d:6s;--s:0.4"></div>
+      <div class="particle" style="--x:80%;--y:60%;--d:8s;--s:0.6"></div>
+      <div class="particle" style="--x:50%;--y:80%;--d:5s;--s:0.3"></div>
+      <div class="particle" style="--x:30%;--y:40%;--d:9s;--s:0.5"></div>
+      <div class="particle" style="--x:70%;--y:15%;--d:7s;--s:0.45"></div>
+    </div>
+    <div class="hero-content">
+      <div class="ouroboros-container" id="ouroborosHero">
+        <svg class="ouroboros-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="snakeGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#d4a84b"/>
+              <stop offset="60%" stop-color="#c8a96e"/>
+              <stop offset="100%" stop-color="#5a3e10"/>
+            </radialGradient>
+            <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#c8a96e" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="4" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Glow halo -->
+          <circle cx="150" cy="150" r="120" fill="url(#glowGrad)" class="glow-ring"/>
+          <!-- Snake body rings -->
+          <circle cx="150" cy="150" r="100" fill="none" stroke="#c8a96e" stroke-width="22" stroke-linecap="round"
+            stroke-dasharray="560 60" class="snake-body" filter="url(#glow)"/>
+          <!-- Scale texture overlay -->
+          <circle cx="150" cy="150" r="100" fill="none" stroke="#8b6914" stroke-width="1" stroke-linecap="round"
+            stroke-dasharray="8 18" class="snake-scales"/>
+          <!-- Snake head -->
+          <g class="snake-head" transform="rotate(0,150,150)">
+            <ellipse cx="150" cy="48" rx="14" ry="11" fill="#c8a96e"/>
+            <ellipse cx="145" cy="44" rx="4" ry="5" fill="#1a1a1a"/>
+            <ellipse cx="155" cy="44" rx="4" ry="5" fill="#1a1a1a"/>
+            <ellipse cx="145" cy="44" rx="2" ry="2.5" fill="#d4a84b"/>
+            <ellipse cx="155" cy="44" rx="2" ry="2.5" fill="#d4a84b"/>
+            <path d="M 143 56 Q 150 62 157 56" stroke="#8b6914" stroke-width="1.5" fill="none"/>
+            <!-- Tongue -->
+            <g class="tongue">
+              <line x1="150" y1="59" x2="150" y2="67" stroke="#c0392b" stroke-width="2"/>
+              <line x1="150" y1="67" x2="145" y2="72" stroke="#c0392b" stroke-width="1.5"/>
+              <line x1="150" y1="67" x2="155" y2="72" stroke="#c0392b" stroke-width="1.5"/>
+            </g>
+          </g>
+          <!-- Tail tip (the snake eating its tail) -->
+          <circle cx="150" cy="50" r="5" fill="#8b6914" class="tail-tip"/>
+        </svg>
+        <div class="hero-center-text">
+          <span class="hero-symbol">∞</span>
+        </div>
+      </div>
+      <h1 class="hero-title" data-i18n="hero.title">Uroboru Office</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Eternal Cycles. Modern Solutions.</p>
+      <div class="hero-cta-wrap">
+        <a href="#services" class="btn-primary" data-i18n="hero.cta">Explore Services</a>
+        <a href="#request" class="btn-outline" data-i18n="hero.cta2">Custom Request</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="about.tag">Who We Are</div>
+        <h2 data-i18n="about.title">The Cycle of Excellence</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal" style="--delay:0.1s">
+          <div class="about-icon">
+            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#c8a96e" stroke-width="2" stroke-dasharray="80 20"/><circle cx="20" cy="20" r="8" fill="#c8a96e" opacity="0.2"/><circle cx="20" cy="20" r="4" fill="#c8a96e"/></svg>
+          </div>
+          <h3 data-i18n="about.card1.title">Infinite Precision</h3>
+          <p data-i18n="about.card1.text">Every project we take is a cycle — beginning, refined process, and perfect delivery. Nothing is left incomplete.</p>
+        </div>
+        <div class="about-card reveal" style="--delay:0.2s">
+          <div class="about-icon">
+            <svg viewBox="0 0 40 40"><polygon points="20,4 36,32 4,32" fill="none" stroke="#c8a96e" stroke-width="2"/><polygon points="20,12 28,26 12,26" fill="#c8a96e" opacity="0.3"/></svg>
+          </div>
+          <h3 data-i18n="about.card2.title">Modern Thinking</h3>
+          <p data-i18n="about.card2.text">Ancient wisdom meets cutting-edge methodology. We blend timeless principles with contemporary innovation.</p>
+        </div>
+        <div class="about-card reveal" style="--delay:0.3s">
+          <div class="about-icon">
+            <svg viewBox="0 0 40 40"><rect x="8" y="8" width="24" height="24" rx="4" fill="none" stroke="#c8a96e" stroke-width="2"/><rect x="14" y="14" width="12" height="12" rx="2" fill="#c8a96e" opacity="0.4"/></svg>
+          </div>
+          <h3 data-i18n="about.card3.title">Complete Cycle</h3>
+          <p data-i18n="about.card3.text">From conception to completion, we handle every phase. The ouroboros never breaks — neither does our commitment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="services.tag">What We Do</div>
+        <h2 data-i18n="services.title">Our Services</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal" style="--delay:0.05s">
+          <div class="service-num">01</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48"><path d="M8 40V16l16-8 16 8v24" fill="none" stroke="#c8a96e" stroke-width="2"/><rect x="16" y="28" width="16" height="12" fill="none" stroke="#c8a96e" stroke-width="2"/><line x1="24" y1="16" x2="24" y2="28" stroke="#c8a96e" stroke-width="1.5"/></svg>
+          </div>
+          <h3 data-i18n="srv.1.title">Design & Branding</h3>
+          <p data-i18n="srv.1.text">Visual identity that endures. Logos, brand guidelines, and creative systems that speak with authority.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal" style="--delay:0.1s">
+          <div class="service-num">02</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="3" fill="none" stroke="#c8a96e" stroke-width="2"/><line x1="6" y1="18" x2="42" y2="18" stroke="#c8a96e" stroke-width="1.5"/><circle cx="11" cy="14" r="2" fill="#c8a96e"/><circle cx="17" cy="14" r="2" fill="#c8a96e"/></svg>
+          </div>
+          <h3 data-i18n="srv.2.title">Web Development</h3>
+          <p data-i18n="srv.2.text">Fast, modern, and scalable websites and web applications built with precision and purpose.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal" style="--delay:0.15s">
+          <div class="service-num">03</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="10" fill="none" stroke="#c8a96e" stroke-width="2"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6" stroke="#c8a96e" stroke-width="2"/><path d="M10 10l4 4M34 34l4 4M34 10l-4 4M10 34l4-4" stroke="#c8a96e" stroke-width="1.5"/></svg>
+          </div>
+          <h3 data-i18n="srv.3.title">Strategy & Consulting</h3>
+          <p data-i18n="srv.3.text">Guiding businesses through transformation with data-driven strategy and human-centered insight.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal" style="--delay:0.2s">
+          <div class="service-num">04</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48"><path d="M8 36l10-12 8 6 8-14 6 8" fill="none" stroke="#c8a96e" stroke-width="2" stroke-linecap="round"/><rect x="6" y="8" width="36" height="28" rx="2" fill="none" stroke="#c8a96e" stroke-width="2"/></svg>
+          </div>
+          <h3 data-i18n="srv.4.title">Digital Marketing</h3>
+          <p data-i18n="srv.4.text">Campaigns that resonate, convert, and last. SEO, social, content — all in one cycle.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal" style="--delay:0.25s">
+          <div class="service-num">05</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48"><rect x="14" y="6" width="20" height="28" rx="2" fill="none" stroke="#c8a96e" stroke-width="2"/><rect x="10" y="14" width="28" height="28" rx="2" fill="#1e2a2e" stroke="#c8a96e" stroke-width="2"/><line x1="16" y1="22" x2="32" y2="22" stroke="#c8a96e" stroke-width="1.5"/><line x1="16" y1="28" x2="28" y2="28" stroke="#c8a96e" stroke-width="1.5"/><line x1="16" y1="34" x2="30" y2="34" stroke="#c8a96e" stroke-width="1.5"/></svg>
+          </div>
+          <h3 data-i18n="srv.5.title">Content Creation</h3>
+          <p data-i18n="srv.5.text">Words, visuals, and stories that captivate. Crafted content for every platform and audience.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal" style="--delay:0.3s">
+          <div class="service-num">06</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="16" r="8" fill="none" stroke="#c8a96e" stroke-width="2"/><path d="M8 40c0-8.8 7.2-16 16-16s16 7.2 16 16" fill="none" stroke="#c8a96e" stroke-width="2"/></svg>
+          </div>
+          <h3 data-i18n="srv.6.title">Custom Solutions</h3>
+          <p data-i18n="srv.6.text">Tailored, one-of-a-kind projects. If you can imagine it, we build it — uniquely for you.</p>
+          <div class="service-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section stats-section" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal" style="--delay:0.05s">
+          <div class="stat-number" data-target="150">0</div>
+          <div class="stat-label" data-i18n="stats.projects">Projects Delivered</div>
+        </div>
+        <div class="stat-item reveal" style="--delay:0.1s">
+          <div class="stat-number" data-target="98">0</div>
+          <div class="stat-label" data-i18n="stats.satisfaction">% Client Satisfaction</div>
+        </div>
+        <div class="stat-item reveal" style="--delay:0.15s">
+          <div class="stat-number" data-target="7">0</div>
+          <div class="stat-label" data-i18n="stats.years">Years of Excellence</div>
+        </div>
+        <div class="stat-item reveal" style="--delay:0.2s">
+          <div class="stat-number" data-target="40">0</div>
+          <div class="stat-label" data-i18n="stats.clients">Active Clients</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM REQUEST FORM -->
+  <section class="section request-section" id="request">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="form.tag">Work With Us</div>
+        <h2 data-i18n="form.title">Custom Request</h2>
+        <div class="divider"></div>
+        <p class="section-sub" data-i18n="form.sub">Describe your vision and we'll craft the perfect solution. All fields marked with <span class="req-star">*</span> are required.</p>
+      </div>
+      <form class="request-form reveal" id="requestForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname"><span data-i18n="form.fname">Full Name</span> <span class="req-star">*</span></label>
+            <input type="text" id="fname" name="fname" autocomplete="name" placeholder="John Doe" required />
+            <span class="field-error" data-i18n="err.fname">Please enter your full name.</span>
+          </div>
+          <div class="form-group">
+            <label for="email"><span data-i18n="form.email">Email Address</span> <span class="req-star">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+            <span class="field-error" data-i18n="err.email">Please enter a valid email address.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone"><span data-i18n="form.phone">Phone Number</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+30 210 0000000" />
+          </div>
+          <div class="form-group">
+            <label for="company"><span data-i18n="form.company">Company / Organization</span></label>
+            <input type="text" id="company" name="company" placeholder="Acme Inc." />
+          </div>
+        </div>
+        <div class="form-group full-width">
+          <label for="service"><span data-i18n="form.service">Type of Service</span> <span class="req-star">*</span></label>
+          <select id="service" name="service" required>
+            <option value="" data-i18n="form.service.placeholder">— Select a service —</option>
+            <option value="design" data-i18n="srv.1.title">Design & Branding</option>
+            <option value="web" data-i18n="srv.2.title">Web Development</option>
+            <option value="strategy" data-i18n="srv.3.title">Strategy & Consulting</option>
+            <option value="marketing" data-i18n="srv.4.title">Digital Marketing</option>
+            <option value="content" data-i18n="srv.5.title">Content Creation</option>
+            <option value="custom" data-i18n="srv.6.title">Custom Solution</option>
+          </select>
+          <span class="field-error" data-i18n="err.service">Please select a service type.</span>
+        </div>
+        <div class="form-group full-width">
+          <label for="budget"><span data-i18n="form.budget">Budget Range</span> <span class="req-star">*</span></label>
+          <select id="budget" name="budget" required>
+            <option value="" data-i18n="form.budget.placeholder">— Select budget range —</option>
+            <option value="<1k" data-i18n="budget.1">Under €1,000</option>
+            <option value="1k-5k" data-i18n="budget.2">€1,000 – €5,000</option>
+            <option value="5k-15k" data-i18n="budget.3">€5,000 – €15,000</option>
+            <option value="15k+" data-i18n="budget.4">€15,000+</option>
+            <option value="discuss" data-i18n="budget.5">Let's Discuss</option>
+          </select>
+          <span class="field-error" data-i18n="err.budget">Please select a budget range.</span>
+        </div>
+        <div class="form-group full-width">
+          <label for="description"><span data-i18n="form.desc">Project Description</span> <span class="req-star">*</span></label>
+          <textarea id="description" name="description" rows="5" placeholder="Describe your project, goals, timeline, and any specific requirements..." required></textarea>
+          <span class="field-error" data-i18n="err.desc">Please describe your project (minimum 20 characters).</span>
+        </div>
+        <div class="form-group full-width">
+          <label for="design"><span data-i18n="form.design">Design Preferences / Inspirations</span></label>
+          <textarea id="design" name="design" rows="3" placeholder="Colors, styles, references, mood boards, links to inspiration..."></textarea>
+        </div>
+        <div class="form-group full-width">
+          <label for="deadline"><span data-i18n="form.deadline">Desired Deadline</span></label>
+          <input type="date" id="deadline" name="deadline" />
+        </div>
+        <div class="form-group full-width checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="agree" name="agree" required />
+            <span class="checkmark"></span>
+            <span data-i18n="form.agree">I agree that Uroboru Office may contact me regarding my request.</span>
+            <span class="req-star"> *</span>
+          </label>
+          <span class="field-error" data-i18n="err.agree">You must agree to be contacted.</span>
+        </div>
+        <div class="form-submit-row">
+          <button type="submit" class="btn-primary btn-submit" id="submitBtn">
+            <span class="btn-text" data-i18n="form.submit">Send Request</span>
+            <span class="btn-loader"></span>
+          </button>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">
+            <svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="22" fill="none" stroke="#c8a96e" stroke-width="2"/><path d="M14 25l8 8 14-16" stroke="#c8a96e" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="form.success.title">Request Sent!</h3>
+          <p data-i18n="form.success.text">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="contact.tag">Get In Touch</div>
+        <h2 data-i18n="contact.title">Contact Us</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item reveal" style="--delay:0.05s">
+          <div class="contact-icon">
+            <svg viewBox="0 0 40 40"><path d="M20 4C12.3 4 6 10.3 6 18c0 10.5 14 22 14 22s14-11.5 14-22C34 10.3 27.7 4 20 4z" fill="none" stroke="#c8a96e" stroke-width="2"/><circle cx="20" cy="18" r="5" fill="#c8a96e" opacity="0.6"/></svg>
+          </div>
+          <h4 data-i18n="contact.address">Address</h4>
+          <p>Athens, Greece</p>
+        </div>
+        <div class="contact-item reveal" style="--delay:0.1s">
+          <div class="contact-icon">
+            <svg viewBox="0 0 40 40"><rect x="4" y="8" width="32" height="24" rx="3" fill="none" stroke="#c8a96e" stroke-width="2"/><path d="M4 12l16 10 16-10" stroke="#c8a96e" stroke-width="2" fill="none"/></svg>
+          </div>
+          <h4 data-i18n="contact.email">Email</h4>
+          <p><a href="mailto:grigoriosdimopulos@gmail.com">grigoriosdimopulos@gmail.com</a></p>
+        </div>
+        <div class="contact-item reveal" style="--delay:0.15s">
+          <div class="contact-icon">
+            <svg viewBox="0 0 40 40"><path d="M8 8h6l3 7-3.5 3.5C15.3 22.7 18 26 22.5 28.5L26 25l7 3v6C18 37 5 24 8 8z" fill="none" stroke="#c8a96e" stroke-width="2"/></svg>
+          </div>
+          <h4 data-i18n="contact.hours">Business Hours</h4>
+          <p data-i18n="contact.hours.val">Mon–Fri, 09:00–18:00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg class="footer-ouroboros" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="30" r="22" fill="none" stroke="#c8a96e" stroke-width="4" stroke-dasharray="120 18" opacity="0.7"/>
+          <polygon points="30,5 34,13 26,13" fill="#c8a96e" opacity="0.7" transform="rotate(-10,30,30)"/>
+        </svg>
+        <span>Uroboru Office</span>
+      </div>
+      <p class="footer-copy" data-i18n="footer.copy">© 2026 Uroboru Office. The cycle continues.</p>
+      <div class="footer-links">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#request" data-i18n="nav.request">Custom Request</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
