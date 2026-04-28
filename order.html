@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages & Pricing — Uroboru Office</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body data-page="order">
+
+  <!-- NAV -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg class="logo-ring" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lgNav2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e2bc7a"/><stop offset="100%" stop-color="#7a5c1e"/>
+            </linearGradient>
+          </defs>
+          <circle cx="25" cy="25" r="18" fill="none" stroke="url(#lgNav2)" stroke-width="4.5" stroke-dasharray="98 18" stroke-linecap="round"/>
+          <circle cx="25" cy="25" r="10" fill="none" stroke="url(#lgNav2)" stroke-width="1.5" stroke-dasharray="52 14" stroke-linecap="round" opacity="0.55"/>
+          <polygon points="25,19 29,25 25,31 21,25" fill="url(#lgNav2)" opacity="0.7"/>
+        </svg>
+        <span class="logo-text">Uroboru Office</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
+        <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="order.html" class="nav-active" data-i18n="nav.pricing">Pricing</a></li>
+        <li><a href="index.html#request" data-i18n="nav.request">Custom Request</a></li>
+        <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="lang-btn" id="langBtn" onclick="toggleLang()"><span id="langLabel">ΕΛ</span></button>
+        <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <p class="hero-eyebrow" data-i18n="order.eyebrow">Transparent, Fixed Pricing</p>
+      <h1 class="page-hero-title" data-i18n="order.title">Packages &amp; Pricing</h1>
+      <p class="page-hero-sub" data-i18n="order.sub">Every package is delivered using AI-powered tools. No hidden fees, no retainers. Pay once, own it forever.</p>
+    </div>
+  </section>
+
+  <!-- SIMPLE SITES -->
+  <section class="section pkg-section" id="simple-sites">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="pkg.sites.tag">Simple Websites</div>
+        <h2 data-i18n="pkg.sites.title">Business & Landing Sites</h2>
+        <div class="divider"></div>
+        <p class="section-sub" data-i18n="pkg.sites.sub">AI-designed, AI-written, mobile-first websites. Ideal for professionals, small businesses and anyone who needs a great online presence quickly.</p>
+      </div>
+      <div class="pkg-grid">
+
+        <!-- Starter -->
+        <div class="pkg-card reveal" style="--delay:0.05s" data-pkg="starter" data-price="99">
+          <div class="pkg-top">
+            <div class="pkg-label" data-i18n="pkg.s1.label">Starter</div>
+            <div class="pkg-price"><span class="pkg-currency">€</span><span class="pkg-amount">99</span></div>
+            <p class="pkg-tagline" data-i18n="pkg.s1.tagline">One perfect page. Ready in 48 hours.</p>
+          </div>
+          <ul class="pkg-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s1.f1">1-page responsive landing site</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s1.f2">AI-written content (you provide key info)</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s1.f3">Contact form with email notification</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s1.f4">Mobile & tablet optimised</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s1.f5">Basic on-page SEO</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s1.f6">Google Analytics setup</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s1.f7">48-hour delivery</span></li>
+            <li class="feat-no"><span class="feat-x">✕</span> <span data-i18n="pkg.s1.n1">Blog / CMS</span></li>
+            <li class="feat-no"><span class="feat-x">✕</span> <span data-i18n="pkg.s1.n2">Multiple pages</span></li>
+          </ul>
+          <button class="btn-order btn-primary" onclick="openOrder('starter','€99')" data-i18n="pkg.order">Order Now</button>
+        </div>
+
+        <!-- Business -->
+        <div class="pkg-card pkg-featured reveal" style="--delay:0.1s" data-pkg="business" data-price="249">
+          <div class="pkg-badge" data-i18n="pkg.popular">Most Popular</div>
+          <div class="pkg-top">
+            <div class="pkg-label" data-i18n="pkg.s2.label">Business</div>
+            <div class="pkg-price"><span class="pkg-currency">€</span><span class="pkg-amount">249</span></div>
+            <p class="pkg-tagline" data-i18n="pkg.s2.tagline">A complete business presence. Delivered in 3–5 days.</p>
+          </div>
+          <ul class="pkg-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s2.f1">Up to 5 pages</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s2.f2">Full AI content strategy & copywriting</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s2.f3">Contact form + email integration</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s2.f4">Mobile & tablet optimised</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s2.f5">Full on-page SEO optimisation</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s2.f6">Google Analytics + Search Console</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s2.f7">Google Maps integration</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s2.f8">Social media links</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s2.f9">3–5 day delivery</span></li>
+          </ul>
+          <button class="btn-order btn-primary" onclick="openOrder('business','€249')" data-i18n="pkg.order">Order Now</button>
+        </div>
+
+        <!-- Professional -->
+        <div class="pkg-card reveal" style="--delay:0.15s" data-pkg="professional" data-price="449">
+          <div class="pkg-top">
+            <div class="pkg-label" data-i18n="pkg.s3.label">Professional</div>
+            <div class="pkg-price"><span class="pkg-currency">€</span><span class="pkg-amount">449</span></div>
+            <p class="pkg-tagline" data-i18n="pkg.s3.tagline">Full authority site with blog. Ready in 5–7 days.</p>
+          </div>
+          <ul class="pkg-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s3.f1">Up to 10 pages</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s3.f2">Full AI content strategy & copywriting</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s3.f3">Blog / news section with CMS</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s3.f4">Advanced SEO + schema markup</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s3.f5">Multiple contact options</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s3.f6">Analytics + heatmap setup</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s3.f7">Social media integration</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s3.f8">Privacy policy page</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.s3.f9">5–7 day delivery</span></li>
+          </ul>
+          <button class="btn-order btn-primary" onclick="openOrder('professional','€449')" data-i18n="pkg.order">Order Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-SHOPS -->
+  <section class="section pkg-section pkg-dark" id="eshops">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="pkg.shop.tag">Online Shops</div>
+        <h2 data-i18n="pkg.shop.title">E-commerce Solutions</h2>
+        <div class="divider"></div>
+        <p class="section-sub" data-i18n="pkg.shop.sub">AI-generated product content, payment gateways and full inventory management. Your shop open 24/7, built in days.</p>
+      </div>
+      <div class="pkg-grid">
+
+        <!-- Mini Shop -->
+        <div class="pkg-card reveal" style="--delay:0.05s" data-pkg="mini-shop" data-price="499">
+          <div class="pkg-top">
+            <div class="pkg-label" data-i18n="pkg.e1.label">Mini Shop</div>
+            <div class="pkg-price"><span class="pkg-currency">€</span><span class="pkg-amount">499</span></div>
+            <p class="pkg-tagline" data-i18n="pkg.e1.tagline">Small catalogue, big impact. Ready in 5–7 days.</p>
+          </div>
+          <ul class="pkg-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e1.f1">Up to 20 products</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e1.f2">AI-written product descriptions</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e1.f3">Stripe or PayPal integration</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e1.f4">Mobile-first responsive design</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e1.f5">Basic inventory management</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e1.f6">Order confirmation emails</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e1.f7">Basic SEO setup</span></li>
+            <li class="feat-no"><span class="feat-x">✕</span> <span data-i18n="pkg.e1.n1">Customer accounts</span></li>
+            <li class="feat-no"><span class="feat-x">✕</span> <span data-i18n="pkg.e1.n2">Coupon / discount system</span></li>
+          </ul>
+          <button class="btn-order btn-primary" onclick="openOrder('mini-shop','€499')" data-i18n="pkg.order">Order Now</button>
+        </div>
+
+        <!-- Standard Shop -->
+        <div class="pkg-card pkg-featured reveal" style="--delay:0.1s" data-pkg="standard-shop" data-price="799">
+          <div class="pkg-badge" data-i18n="pkg.popular">Most Popular</div>
+          <div class="pkg-top">
+            <div class="pkg-label" data-i18n="pkg.e2.label">Standard Shop</div>
+            <div class="pkg-price"><span class="pkg-currency">€</span><span class="pkg-amount">799</span></div>
+            <p class="pkg-tagline" data-i18n="pkg.e2.tagline">Full-featured shop with accounts. Ready in 7–10 days.</p>
+          </div>
+          <ul class="pkg-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e2.f1">Up to 100 products</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e2.f2">AI product descriptions + SEO optimisation</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e2.f3">Multiple payment gateways</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e2.f4">Customer accounts & order history</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e2.f5">Inventory & stock management</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e2.f6">Coupon & discount system</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e2.f7">Order management dashboard</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e2.f8">Automated email sequences</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e2.f9">7–10 day delivery</span></li>
+          </ul>
+          <button class="btn-order btn-primary" onclick="openOrder('standard-shop','€799')" data-i18n="pkg.order">Order Now</button>
+        </div>
+
+        <!-- Premium Shop -->
+        <div class="pkg-card reveal" style="--delay:0.15s" data-pkg="premium-shop" data-price="1199">
+          <div class="pkg-top">
+            <div class="pkg-label" data-i18n="pkg.e3.label">Premium Shop</div>
+            <div class="pkg-price"><span class="pkg-currency">€</span><span class="pkg-amount">1,199</span></div>
+            <p class="pkg-tagline" data-i18n="pkg.e3.tagline">Unlimited scale, advanced features. Ready in 10–14 days.</p>
+          </div>
+          <ul class="pkg-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e3.f1">Unlimited products</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e3.f2">Full AI content suite</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e3.f3">Advanced analytics dashboard</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e3.f4">Multi-currency support</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e3.f5">Upsell & cross-sell automation</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e3.f6">Abandoned cart recovery</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e3.f7">Advanced promotions engine</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e3.f8">3-month priority support</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="pkg.e3.f9">10–14 day delivery</span></li>
+          </ul>
+          <button class="btn-order btn-primary" onclick="openOrder('premium-shop','€1,199')" data-i18n="pkg.order">Order Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM -->
+  <section class="section pkg-section" id="custom">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="pkg.custom.tag">Bespoke</div>
+        <h2 data-i18n="pkg.custom.title">Custom AI Solutions</h2>
+        <div class="divider"></div>
+        <p class="section-sub" data-i18n="pkg.custom.sub">For projects that don't fit a package — AI chatbots, booking systems, CRM integrations, web apps, automation workflows. Scoped and priced individually.</p>
+      </div>
+      <div class="custom-card reveal">
+        <div class="custom-left">
+          <div class="pkg-price" style="margin-bottom:1rem"><span class="pkg-currency">€</span><span class="pkg-amount" style="font-size:3rem" data-i18n="pkg.custom.price">Custom</span></div>
+          <p class="custom-desc" data-i18n="pkg.custom.desc">Every custom project begins with a free discovery call. We scope the work, define deliverables and give you a fixed quote — no hourly surprises.</p>
+          <button class="btn-primary" style="margin-top:2rem" onclick="openOrder('custom','Variable')" data-i18n="pkg.custom.cta">Start a Conversation</button>
+        </div>
+        <div class="custom-right">
+          <div class="custom-feat-grid">
+            <div class="custom-feat">
+              <div class="cf-icon">⬡</div>
+              <h4 data-i18n="pkg.custom.f1.t">AI Chatbots</h4>
+              <p data-i18n="pkg.custom.f1.d">Trained on your products, FAQs or knowledge base. Integrated into your existing site.</p>
+            </div>
+            <div class="custom-feat">
+              <div class="cf-icon">⬡</div>
+              <h4 data-i18n="pkg.custom.f2.t">Booking Systems</h4>
+              <p data-i18n="pkg.custom.f2.d">Real-time availability, automated confirmations, calendar sync and payment collection.</p>
+            </div>
+            <div class="custom-feat">
+              <div class="cf-icon">⬡</div>
+              <h4 data-i18n="pkg.custom.f3.t">CRM Integration</h4>
+              <p data-i18n="pkg.custom.f3.d">Connect your site to HubSpot, Salesforce, Notion or any custom CRM workflow.</p>
+            </div>
+            <div class="custom-feat">
+              <div class="cf-icon">⬡</div>
+              <h4 data-i18n="pkg.custom.f4.t">Web Applications</h4>
+              <p data-i18n="pkg.custom.f4.d">Member portals, dashboards, calculators — full web app development with AI at the core.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER FORM MODAL -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeOrder()">✕</button>
+      <div class="modal-header">
+        <div class="section-tag" data-i18n="order.form.tag">Place Your Order</div>
+        <h2 id="modalTitle">Order: Business Package</h2>
+        <div class="divider" style="margin:1rem 0 0"></div>
+      </div>
+      <form id="orderForm" class="order-form" novalidate>
+        <input type="hidden" id="o-package" name="package" />
+        <input type="hidden" id="o-price" name="price" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="o-fname"><span data-i18n="form.fname">Full Name</span> <span class="req-star">*</span></label>
+            <input type="text" id="o-fname" name="fname" autocomplete="name" placeholder="John Doe" required />
+            <span class="field-error" data-i18n="err.fname">Please enter your full name.</span>
+          </div>
+          <div class="form-group">
+            <label for="o-email"><span data-i18n="form.email">Email Address</span> <span class="req-star">*</span></label>
+            <input type="email" id="o-email" name="email" autocomplete="email" placeholder="you@example.com" required />
+            <span class="field-error" data-i18n="err.email">Please enter a valid email address.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="o-phone"><span data-i18n="form.phone">Phone Number</span></label>
+            <input type="tel" id="o-phone" name="phone" autocomplete="tel" placeholder="+30 210 0000000" />
+          </div>
+          <div class="form-group">
+            <label for="o-company"><span data-i18n="form.company">Business Name</span></label>
+            <input type="text" id="o-company" name="company" placeholder="Acme Inc." />
+          </div>
+        </div>
+        <div class="form-group full-width">
+          <label for="o-desc"><span data-i18n="form.desc">Brief Description</span> <span class="req-star">*</span></label>
+          <textarea id="o-desc" name="description" rows="4" placeholder="Describe your business, industry, what you sell or offer, target audience..." required></textarea>
+          <span class="field-error" data-i18n="err.desc">Please describe your project (minimum 20 characters).</span>
+        </div>
+        <div class="form-group full-width">
+          <label for="o-notes"><span data-i18n="order.form.notes">Additional Notes / Requirements</span></label>
+          <textarea id="o-notes" name="notes" rows="3" placeholder="Colours, references, must-have features, existing domain/hosting..."></textarea>
+        </div>
+        <div class="form-group full-width checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="o-agree" name="agree" required />
+            <span class="checkmark"></span>
+            <span data-i18n="form.agree">I agree that Uroboru Office may contact me and I have read the </span><a href="legal.html" data-i18n="form.agree.legal">Privacy Policy</a><span data-i18n="form.agree2">.</span>
+            <span class="req-star"> *</span>
+          </label>
+          <span class="field-error" data-i18n="err.agree">You must agree to be contacted.</span>
+        </div>
+        <div class="form-submit-row">
+          <button type="submit" class="btn-primary btn-submit" id="orderSubmitBtn">
+            <span class="btn-text" data-i18n="order.form.submit">Send Order</span>
+            <span class="btn-loader"></span>
+          </button>
+        </div>
+        <div class="form-success" id="orderSuccess">
+          <div class="success-ring"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" fill="none" stroke="#c9a96e" stroke-width="1.5"/><path d="M24 40l10 10 22-20" stroke="#c9a96e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3 data-i18n="form.success.title">Order Received!</h3>
+          <p data-i18n="order.success.text">We'll confirm your order within 24 hours with a project brief and next steps.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top-line"></div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg class="footer-ring" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="25" r="19" fill="none" stroke="#c9a96e" stroke-width="4" stroke-dasharray="104 20" stroke-linecap="round" opacity="0.6"/>
+          <circle cx="25" cy="25" r="11" fill="none" stroke="#c9a96e" stroke-width="1.2" stroke-dasharray="56 14" stroke-linecap="round" opacity="0.3"/>
+          <polygon points="25,19 30,25 25,31 20,25" fill="#c9a96e" opacity="0.5"/>
+        </svg>
+        <span class="footer-name">Uroboru Office</span>
+      </div>
+      <p class="footer-tagline" data-i18n="footer.tagline">AI-Powered Web Creation. The cycle continues.</p>
+      <nav class="footer-nav">
+        <a href="index.html#about" data-i18n="nav.about">About</a>
+        <a href="index.html#services" data-i18n="nav.services">Services</a>
+        <a href="order.html" data-i18n="nav.pricing">Pricing</a>
+        <a href="index.html#request" data-i18n="nav.request">Request</a>
+        <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+        <a href="legal.html" data-i18n="nav.legal">Legal</a>
+      </nav>
+      <p class="footer-copy" data-i18n="footer.copy">© 2026 Uroboru Office. All rights reserved. <a href="legal.html" data-i18n="footer.privacy">Privacy Policy</a> · <a href="legal.html#terms" data-i18n="footer.terms">Terms</a></p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="order.js"></script>
+</body>
+</html>

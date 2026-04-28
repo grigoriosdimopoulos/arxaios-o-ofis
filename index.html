@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uroboru Office</title>
+  <title>Uroboru Office — AI-Powered Web Creation</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body data-page="home">
 
   <!-- NAV -->
   <nav class="navbar" id="navbar">
@@ -16,14 +16,11 @@
         <svg class="logo-ring" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="lgNav" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#e2bc7a"/>
-              <stop offset="100%" stop-color="#7a5c1e"/>
+              <stop offset="0%" stop-color="#e2bc7a"/><stop offset="100%" stop-color="#7a5c1e"/>
             </linearGradient>
           </defs>
-          <circle cx="25" cy="25" r="18" fill="none" stroke="url(#lgNav)" stroke-width="4.5"
-            stroke-dasharray="98 18" stroke-linecap="round"/>
-          <circle cx="25" cy="25" r="10" fill="none" stroke="url(#lgNav)" stroke-width="1.5"
-            stroke-dasharray="52 14" stroke-linecap="round" opacity="0.55"/>
+          <circle cx="25" cy="25" r="18" fill="none" stroke="url(#lgNav)" stroke-width="4.5" stroke-dasharray="98 18" stroke-linecap="round"/>
+          <circle cx="25" cy="25" r="10" fill="none" stroke="url(#lgNav)" stroke-width="1.5" stroke-dasharray="52 14" stroke-linecap="round" opacity="0.55"/>
           <polygon points="25,19 29,25 25,31 21,25" fill="url(#lgNav)" opacity="0.7"/>
         </svg>
         <span class="logo-text">Uroboru Office</span>
@@ -31,16 +28,13 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#about" data-i18n="nav.about">About</a></li>
         <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="order.html" data-i18n="nav.pricing">Pricing</a></li>
         <li><a href="#request" data-i18n="nav.request">Custom Request</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <button class="lang-btn" id="langBtn" onclick="toggleLang()">
-          <span id="langLabel">ΕΛ</span>
-        </button>
-        <button class="burger" id="burger" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="lang-btn" id="langBtn" onclick="toggleLang()"><span id="langLabel">ΕΛ</span></button>
+        <button class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -49,31 +43,24 @@
   <section class="hero" id="hero">
     <div class="hero-atmosphere">
       <div class="atm-ring" style="--r:520px;--op:0.025;--dur:60s"></div>
-      <div class="atm-ring" style="--r:380px;--op:0.04;--dur:45s;--dir:-1"></div>
+      <div class="atm-ring" style="--r:380px;--op:0.04;--dur:45s"></div>
       <div class="atm-ring" style="--r:240px;--op:0.06;--dur:30s"></div>
     </div>
     <div class="hero-content">
-      <!-- Premium Ouroboros — pure geometric, no snake head -->
       <div class="ouroboros-wrap">
         <svg class="ouroboros-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#e2bc7a"/>
-              <stop offset="40%" stop-color="#c9a96e"/>
-              <stop offset="100%" stop-color="#5a3e10"/>
+              <stop offset="0%" stop-color="#e2bc7a"/><stop offset="40%" stop-color="#c9a96e"/><stop offset="100%" stop-color="#5a3e10"/>
             </linearGradient>
             <linearGradient id="innerGrad" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#e2bc7a" stop-opacity="0.6"/>
-              <stop offset="100%" stop-color="#7a5c1e" stop-opacity="0.2"/>
+              <stop offset="0%" stop-color="#e2bc7a" stop-opacity="0.6"/><stop offset="100%" stop-color="#7a5c1e" stop-opacity="0.2"/>
             </linearGradient>
             <radialGradient id="gemGrad" cx="40%" cy="35%" r="70%">
-              <stop offset="0%" stop-color="#f0dca0"/>
-              <stop offset="60%" stop-color="#c9a96e"/>
-              <stop offset="100%" stop-color="#7a5c1e"/>
+              <stop offset="0%" stop-color="#f0dca0"/><stop offset="60%" stop-color="#c9a96e"/><stop offset="100%" stop-color="#7a5c1e"/>
             </radialGradient>
             <radialGradient id="haloGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.18"/>
-              <stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/>
+              <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.18"/><stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/>
             </radialGradient>
             <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
               <feGaussianBlur stdDeviation="6" result="blur"/>
@@ -84,52 +71,27 @@
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
           </defs>
-
-          <!-- Ambient halo -->
           <circle cx="150" cy="150" r="138" fill="url(#haloGrad)" class="halo"/>
-
-          <!-- Outermost tick ring -->
-          <circle cx="150" cy="150" r="130" fill="none" stroke="#c9a96e"
-            stroke-width="0.6" stroke-dasharray="3 11" opacity="0.3" class="tick-ring"/>
-
-          <!-- Main arc — the ouroboros body, gap is the mouth eating the tail -->
-          <circle cx="150" cy="150" r="108" fill="none" stroke="url(#bodyGrad)"
-            stroke-width="20" stroke-dasharray="613 65" stroke-linecap="round"
-            class="main-arc" filter="url(#softGlow)"/>
-
-          <!-- Highlight sheen on main arc -->
-          <circle cx="150" cy="150" r="108" fill="none" stroke="rgba(255,245,210,0.13)"
-            stroke-width="8" stroke-dasharray="613 65" stroke-linecap="round"
-            class="main-arc"/>
-
-          <!-- Mid ring — counter-rotates -->
-          <circle cx="150" cy="150" r="82" fill="none" stroke="url(#innerGrad)"
-            stroke-width="3" stroke-dasharray="468 46" stroke-linecap="round"
-            class="mid-ring"/>
-
-          <!-- Fine inner ring -->
-          <circle cx="150" cy="150" r="62" fill="none" stroke="#c9a96e"
-            stroke-width="0.8" stroke-dasharray="348 22" stroke-linecap="round"
-            opacity="0.2" class="fine-ring"/>
-
-          <!-- Center diamond emblem -->
+          <circle cx="150" cy="150" r="130" fill="none" stroke="#c9a96e" stroke-width="0.6" stroke-dasharray="3 11" opacity="0.3" class="tick-ring"/>
+          <circle cx="150" cy="150" r="108" fill="none" stroke="url(#bodyGrad)" stroke-width="20" stroke-dasharray="613 65" stroke-linecap="round" class="main-arc" filter="url(#softGlow)"/>
+          <circle cx="150" cy="150" r="108" fill="none" stroke="rgba(255,245,210,0.13)" stroke-width="8" stroke-dasharray="613 65" stroke-linecap="round" class="main-arc"/>
+          <circle cx="150" cy="150" r="82" fill="none" stroke="url(#innerGrad)" stroke-width="3" stroke-dasharray="468 46" stroke-linecap="round" class="mid-ring"/>
+          <circle cx="150" cy="150" r="62" fill="none" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="348 22" stroke-linecap="round" opacity="0.2" class="fine-ring"/>
           <g class="center-gem" filter="url(#subtleGlow)">
             <polygon points="150,130 170,150 150,170 130,150" fill="url(#gemGrad)" opacity="0.85"/>
-            <polygon points="150,136 163,150 150,164 137,150" fill="none"
-              stroke="rgba(255,245,210,0.45)" stroke-width="0.7"/>
+            <polygon points="150,136 163,150 150,164 137,150" fill="none" stroke="rgba(255,245,210,0.45)" stroke-width="0.7"/>
             <polygon points="150,142 157,150 150,158 143,150" fill="rgba(255,245,210,0.15)"/>
           </g>
         </svg>
         <div class="ouro-label">∞</div>
       </div>
-
       <div class="hero-text-block">
-        <p class="hero-eyebrow" data-i18n="hero.eyebrow">Premium Creative Studio</p>
+        <p class="hero-eyebrow" data-i18n="hero.eyebrow">AI-Powered Web Creation Studio</p>
         <h1 class="hero-title" data-i18n="hero.title">Uroboru Office</h1>
-        <p class="hero-sub" data-i18n="hero.sub">Eternal Cycles. Modern Solutions.</p>
+        <p class="hero-sub" data-i18n="hero.sub">We build websites with AI — faster, sharper, at a fraction of the cost.</p>
       </div>
       <div class="hero-cta-wrap">
-        <a href="#services" class="btn-primary" data-i18n="hero.cta">Explore Services</a>
+        <a href="order.html" class="btn-primary" data-i18n="hero.cta">See Packages & Prices</a>
         <a href="#request" class="btn-ghost" data-i18n="hero.cta2">Custom Request</a>
       </div>
     </div>
@@ -142,58 +104,59 @@
   <div class="ticker-strip">
     <div class="ticker-inner">
       <span class="ticker-set" aria-hidden="true">
-        <span>Design</span><span class="dot">·</span>
-        <span>Strategy</span><span class="dot">·</span>
-        <span>Development</span><span class="dot">·</span>
-        <span>Branding</span><span class="dot">·</span>
-        <span>Digital</span><span class="dot">·</span>
-        <span>Innovation</span><span class="dot">·</span>
-        <span>Creative</span><span class="dot">·</span>
-        <span>Excellence</span><span class="dot">·</span>
+        <span data-i18n="tick.1">AI Design</span><span class="dot">·</span>
+        <span data-i18n="tick.2">E-commerce</span><span class="dot">·</span>
+        <span data-i18n="tick.3">48h Delivery</span><span class="dot">·</span>
+        <span data-i18n="tick.4">SEO Optimized</span><span class="dot">·</span>
+        <span data-i18n="tick.5">AI Copywriting</span><span class="dot">·</span>
+        <span data-i18n="tick.6">Mobile First</span><span class="dot">·</span>
+        <span data-i18n="tick.7">Custom Solutions</span><span class="dot">·</span>
+        <span data-i18n="tick.8">Greek & English</span><span class="dot">·</span>
       </span>
       <span class="ticker-set" aria-hidden="true">
-        <span>Design</span><span class="dot">·</span>
-        <span>Strategy</span><span class="dot">·</span>
-        <span>Development</span><span class="dot">·</span>
-        <span>Branding</span><span class="dot">·</span>
-        <span>Digital</span><span class="dot">·</span>
-        <span>Innovation</span><span class="dot">·</span>
-        <span>Creative</span><span class="dot">·</span>
-        <span>Excellence</span><span class="dot">·</span>
+        <span data-i18n="tick.1">AI Design</span><span class="dot">·</span>
+        <span data-i18n="tick.2">E-commerce</span><span class="dot">·</span>
+        <span data-i18n="tick.3">48h Delivery</span><span class="dot">·</span>
+        <span data-i18n="tick.4">SEO Optimized</span><span class="dot">·</span>
+        <span data-i18n="tick.5">AI Copywriting</span><span class="dot">·</span>
+        <span data-i18n="tick.6">Mobile First</span><span class="dot">·</span>
+        <span data-i18n="tick.7">Custom Solutions</span><span class="dot">·</span>
+        <span data-i18n="tick.8">Greek & English</span><span class="dot">·</span>
       </span>
     </div>
   </div>
 
-  <!-- ABOUT -->
+  <!-- ABOUT / AI METHODOLOGY -->
   <section class="section about-section" id="about">
     <div class="container">
       <div class="about-layout">
         <div class="about-left reveal">
-          <div class="section-tag" data-i18n="about.tag">Who We Are</div>
-          <h2 class="about-headline" data-i18n="about.title">The Cycle<br/>of Excellence</h2>
+          <div class="section-tag" data-i18n="about.tag">How We Work</div>
+          <h2 class="about-headline" data-i18n="about.title">AI at the<br/>Core of Every Build</h2>
           <div class="divider-left"></div>
-          <p class="about-body" data-i18n="about.body">We are a creative studio rooted in a singular idea — that every great endeavour is a cycle. We begin with your vision, refine it through mastery, and deliver something timeless. Like the ouroboros, our process never breaks.</p>
+          <p class="about-body" data-i18n="about.body">We use state-of-the-art AI tools across every stage of production — from visual design and UX layout to copywriting, SEO and code generation. What used to take weeks now takes days. What used to cost thousands now costs hundreds. The ouroboros never stops — and neither does our process.</p>
+          <a href="order.html" class="btn-ghost" style="margin-top:2rem;display:inline-block" data-i18n="about.cta">View Packages →</a>
         </div>
         <div class="about-right">
           <div class="about-card reveal" style="--delay:0.1s">
             <div class="card-number">01</div>
             <div class="card-body">
-              <h3 data-i18n="about.card1.title">Infinite Precision</h3>
-              <p data-i18n="about.card1.text">Every project we take is a cycle — beginning, refined process, and perfect delivery. Nothing is left incomplete.</p>
+              <h3 data-i18n="about.card1.title">AI Design & Layout</h3>
+              <p data-i18n="about.card1.text">We use advanced AI to generate and iterate on visual designs in real time — producing pixel-perfect, brand-aligned results without the weeks of back-and-forth.</p>
             </div>
           </div>
           <div class="about-card reveal" style="--delay:0.2s">
             <div class="card-number">02</div>
             <div class="card-body">
-              <h3 data-i18n="about.card2.title">Modern Thinking</h3>
-              <p data-i18n="about.card2.text">Ancient wisdom meets cutting-edge methodology. We blend timeless principles with contemporary innovation.</p>
+              <h3 data-i18n="about.card2.title">AI Copywriting & SEO</h3>
+              <p data-i18n="about.card2.text">Every word on your site is crafted and optimised by AI trained on conversion and search ranking. Your content works harder from day one.</p>
             </div>
           </div>
           <div class="about-card reveal" style="--delay:0.3s">
             <div class="card-number">03</div>
             <div class="card-body">
-              <h3 data-i18n="about.card3.title">Complete Cycle</h3>
-              <p data-i18n="about.card3.text">From conception to completion, we handle every phase. The ouroboros never breaks — neither does our commitment.</p>
+              <h3 data-i18n="about.card3.title">Speed Without Compromise</h3>
+              <p data-i18n="about.card3.text">Our AI-augmented workflow compresses timelines dramatically. Simple sites ship in 48 hours. E-shops in under a week. No agency markup. No slow revisions.</p>
             </div>
           </div>
         </div>
@@ -205,88 +168,64 @@
   <section class="section services-section" id="services">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-tag" data-i18n="services.tag">What We Do</div>
+        <div class="section-tag" data-i18n="services.tag">What We Build</div>
         <h2 data-i18n="services.title">Our Services</h2>
         <div class="divider"></div>
       </div>
       <div class="services-list">
         <div class="service-row reveal" style="--delay:0.05s">
           <div class="sr-num">01</div>
-          <div class="sr-icon">
-            <svg viewBox="0 0 40 40"><path d="M6 34V14l14-6 14 6v20" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="24" width="14" height="10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          </div>
+          <div class="sr-icon"><svg viewBox="0 0 40 40"><rect x="4" y="6" width="32" height="28" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="4" y1="14" x2="36" y2="14" stroke="currentColor" stroke-width="1.5"/><rect x="8" y="19" width="10" height="10" rx="1" fill="currentColor" opacity="0.4"/><line x1="22" y1="21" x2="32" y2="21" stroke="currentColor" stroke-width="1.2"/><line x1="22" y1="25" x2="29" y2="25" stroke="currentColor" stroke-width="1.2"/></svg></div>
           <div class="sr-content">
-            <h3 data-i18n="srv.1.title">Design & Branding</h3>
-            <p data-i18n="srv.1.text">Visual identity that endures. Logos, brand guidelines, and creative systems that speak with authority.</p>
+            <h3 data-i18n="srv.1.title">AI Landing Pages & Business Sites</h3>
+            <p data-i18n="srv.1.text">From single-page landing sites to full 10-page business websites. AI-designed, AI-written, hand-reviewed. Starting from €99.</p>
           </div>
-          <div class="sr-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </div>
+          <div class="sr-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </div>
         <div class="service-row reveal" style="--delay:0.1s">
           <div class="sr-num">02</div>
-          <div class="sr-icon">
-            <svg viewBox="0 0 40 40"><rect x="4" y="8" width="32" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="4" y1="16" x2="36" y2="16" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="12" r="1.5" fill="currentColor"/><circle cx="14" cy="12" r="1.5" fill="currentColor"/></svg>
-          </div>
+          <div class="sr-icon"><svg viewBox="0 0 40 40"><rect x="4" y="8" width="32" height="26" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M13 22l4 4 10-10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="16" x2="36" y2="16" stroke="currentColor" stroke-width="1.2"/></svg></div>
           <div class="sr-content">
-            <h3 data-i18n="srv.2.title">Web Development</h3>
-            <p data-i18n="srv.2.text">Fast, modern, and scalable websites and web applications built with precision and purpose.</p>
+            <h3 data-i18n="srv.2.title">E-commerce & Online Shops</h3>
+            <p data-i18n="srv.2.text">Full online stores with AI-generated product descriptions, payment integration, inventory management and mobile-first design. Starting from €499.</p>
           </div>
-          <div class="sr-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </div>
+          <div class="sr-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </div>
         <div class="service-row reveal" style="--delay:0.15s">
           <div class="sr-num">03</div>
-          <div class="sr-icon">
-            <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 4v4M20 32v4M4 20h4M32 20h4" stroke="currentColor" stroke-width="1.5"/><path d="M9 9l2.8 2.8M28.2 28.2L31 31M31 9l-2.8 2.8M11.8 28.2L9 31" stroke="currentColor" stroke-width="1.2"/></svg>
-          </div>
+          <div class="sr-icon"><svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 34c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M28 8l2 2-6 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></div>
           <div class="sr-content">
-            <h3 data-i18n="srv.3.title">Strategy & Consulting</h3>
-            <p data-i18n="srv.3.text">Guiding businesses through transformation with data-driven strategy and human-centered insight.</p>
+            <h3 data-i18n="srv.3.title">AI Content & SEO Writing</h3>
+            <p data-i18n="srv.3.text">Product descriptions, blog posts, landing copy — all written by AI, optimised for search engines and refined for your audience. Standalone or bundled with any package.</p>
           </div>
-          <div class="sr-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </div>
+          <div class="sr-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </div>
         <div class="service-row reveal" style="--delay:0.2s">
           <div class="sr-num">04</div>
-          <div class="sr-icon">
-            <svg viewBox="0 0 40 40"><path d="M6 30l9-10 7 5 7-12 5 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="6" width="32" height="28" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          </div>
+          <div class="sr-icon"><svg viewBox="0 0 40 40"><polygon points="20,4 24,16 36,16 26,24 30,36 20,28 10,36 14,24 4,16 16,16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
           <div class="sr-content">
-            <h3 data-i18n="srv.4.title">Digital Marketing</h3>
-            <p data-i18n="srv.4.text">Campaigns that resonate, convert, and last. SEO, social, content — all in one cycle.</p>
+            <h3 data-i18n="srv.4.title">Logo & Brand Identity</h3>
+            <p data-i18n="srv.4.text">AI-assisted logo design, colour systems and brand guidelines delivered as a complete package. A professional visual identity, without the agency price tag.</p>
           </div>
-          <div class="sr-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </div>
+          <div class="sr-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </div>
         <div class="service-row reveal" style="--delay:0.25s">
           <div class="sr-num">05</div>
-          <div class="sr-icon">
-            <svg viewBox="0 0 40 40"><rect x="10" y="4" width="20" height="28" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="6" y="10" width="28" height="28" rx="2" fill="#141918" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="18" x2="28" y2="18" stroke="currentColor" stroke-width="1.2"/><line x1="12" y1="23" x2="24" y2="23" stroke="currentColor" stroke-width="1.2"/><line x1="12" y1="28" x2="26" y2="28" stroke="currentColor" stroke-width="1.2"/></svg>
-          </div>
+          <div class="sr-icon"><svg viewBox="0 0 40 40"><path d="M6 30l9-10 7 5 7-12 5 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="6" width="32" height="28" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
           <div class="sr-content">
-            <h3 data-i18n="srv.5.title">Content Creation</h3>
-            <p data-i18n="srv.5.text">Words, visuals, and stories that captivate. Crafted content for every platform and audience.</p>
+            <h3 data-i18n="srv.5.title">Digital Marketing & Ad Copy</h3>
+            <p data-i18n="srv.5.text">AI-generated Google & Meta ad campaigns, email sequences and social media content that converts. Built fast, tested faster.</p>
           </div>
-          <div class="sr-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </div>
+          <div class="sr-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </div>
         <div class="service-row reveal" style="--delay:0.3s">
           <div class="sr-num">06</div>
-          <div class="sr-icon">
-            <svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 36c0-7.7 6.3-14 14-14s14 6.3 14 14" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          </div>
+          <div class="sr-icon"><svg viewBox="0 0 40 40"><rect x="6" y="6" width="12" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="22" y="6" width="12" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="6" y="22" width="12" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="28" cy="28" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="28" y1="25" x2="28" y2="31" stroke="currentColor" stroke-width="1.2"/><line x1="25" y1="28" x2="31" y2="28" stroke="currentColor" stroke-width="1.2"/></svg></div>
           <div class="sr-content">
-            <h3 data-i18n="srv.6.title">Custom Solutions</h3>
-            <p data-i18n="srv.6.text">Tailored, one-of-a-kind projects. If you can imagine it, we build it — uniquely for you.</p>
+            <h3 data-i18n="srv.6.title">Custom AI Solutions</h3>
+            <p data-i18n="srv.6.text">Booking systems, CRM integrations, AI chatbots, custom automation. If you can describe it, we can build it with AI at the core. Variable pricing.</p>
           </div>
-          <div class="sr-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </div>
+          <div class="sr-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </div>
       </div>
     </div>
@@ -298,27 +237,23 @@
     <div class="container">
       <div class="stats-grid">
         <div class="stat-item reveal" style="--delay:0.05s">
-          <div class="stat-number" data-target="150">0</div>
-          <div class="stat-suffix">+</div>
-          <div class="stat-label" data-i18n="stats.projects">Projects Delivered</div>
+          <div class="stat-number" data-target="48">0</div><div class="stat-suffix">h</div>
+          <div class="stat-label" data-i18n="stats.delivery">Fastest Delivery</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item reveal" style="--delay:0.1s">
-          <div class="stat-number" data-target="98">0</div>
-          <div class="stat-suffix">%</div>
-          <div class="stat-label" data-i18n="stats.satisfaction">Client Satisfaction</div>
+          <div class="stat-number" data-target="90">0</div><div class="stat-suffix">%</div>
+          <div class="stat-label" data-i18n="stats.saving">Cost Saving vs. Traditional Agency</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item reveal" style="--delay:0.15s">
-          <div class="stat-number" data-target="7">0</div>
-          <div class="stat-suffix">+</div>
-          <div class="stat-label" data-i18n="stats.years">Years of Excellence</div>
+          <div class="stat-number" data-target="150">0</div><div class="stat-suffix">+</div>
+          <div class="stat-label" data-i18n="stats.projects">Sites Delivered</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item reveal" style="--delay:0.2s">
-          <div class="stat-number" data-target="40">0</div>
-          <div class="stat-suffix">+</div>
-          <div class="stat-label" data-i18n="stats.clients">Active Clients</div>
+          <div class="stat-number" data-target="99">0</div><div class="stat-suffix">%</div>
+          <div class="stat-label" data-i18n="stats.satisfaction">Client Satisfaction</div>
         </div>
       </div>
     </div>
@@ -331,7 +266,7 @@
         <div class="section-tag" data-i18n="form.tag">Work With Us</div>
         <h2 data-i18n="form.title">Custom Request</h2>
         <div class="divider"></div>
-        <p class="section-sub" data-i18n="form.sub">Describe your vision and we'll craft the perfect solution. Fields marked <span class="req-star">*</span> are required.</p>
+        <p class="section-sub" data-i18n="form.sub">Not sure which package fits? Describe your project and we'll recommend the right solution and price. Fields marked <span class="req-star">*</span> are required.</p>
       </div>
       <form class="request-form reveal" id="requestForm" novalidate>
         <div class="form-row">
@@ -352,43 +287,44 @@
             <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+30 210 0000000" />
           </div>
           <div class="form-group">
-            <label for="company"><span data-i18n="form.company">Company / Organization</span></label>
+            <label for="company"><span data-i18n="form.company">Company / Business Name</span></label>
             <input type="text" id="company" name="company" placeholder="Acme Inc." />
           </div>
         </div>
         <div class="form-group full-width">
-          <label for="service"><span data-i18n="form.service">Type of Service</span> <span class="req-star">*</span></label>
+          <label for="service"><span data-i18n="form.service">Type of Project</span> <span class="req-star">*</span></label>
           <select id="service" name="service" required>
-            <option value="" data-i18n="form.service.placeholder">— Select a service —</option>
-            <option value="design" data-i18n="srv.1.title">Design & Branding</option>
-            <option value="web" data-i18n="srv.2.title">Web Development</option>
-            <option value="strategy" data-i18n="srv.3.title">Strategy & Consulting</option>
-            <option value="marketing" data-i18n="srv.4.title">Digital Marketing</option>
-            <option value="content" data-i18n="srv.5.title">Content Creation</option>
-            <option value="custom" data-i18n="srv.6.title">Custom Solution</option>
+            <option value="" data-i18n="form.service.placeholder">— Select project type —</option>
+            <option value="landing" data-i18n="srv.1.title">AI Landing Page / Business Site</option>
+            <option value="eshop" data-i18n="srv.2.title">E-commerce / Online Shop</option>
+            <option value="content" data-i18n="srv.3.title">AI Content & SEO Writing</option>
+            <option value="brand" data-i18n="srv.4.title">Logo & Brand Identity</option>
+            <option value="marketing" data-i18n="srv.5.title">Digital Marketing & Ad Copy</option>
+            <option value="custom" data-i18n="srv.6.title">Custom AI Solution</option>
           </select>
-          <span class="field-error" data-i18n="err.service">Please select a service type.</span>
+          <span class="field-error" data-i18n="err.service">Please select a project type.</span>
         </div>
         <div class="form-group full-width">
           <label for="budget"><span data-i18n="form.budget">Budget Range</span> <span class="req-star">*</span></label>
           <select id="budget" name="budget" required>
             <option value="" data-i18n="form.budget.placeholder">— Select budget range —</option>
-            <option value="<1k" data-i18n="budget.1">Under €1,000</option>
-            <option value="1k-5k" data-i18n="budget.2">€1,000 – €5,000</option>
-            <option value="5k-15k" data-i18n="budget.3">€5,000 – €15,000</option>
-            <option value="15k+" data-i18n="budget.4">€15,000+</option>
-            <option value="discuss" data-i18n="budget.5">Let's Discuss</option>
+            <option value="under200" data-i18n="budget.1">Under €200</option>
+            <option value="200-500" data-i18n="budget.2">€200 – €500</option>
+            <option value="500-1000" data-i18n="budget.3">€500 – €1,000</option>
+            <option value="1000-3000" data-i18n="budget.4">€1,000 – €3,000</option>
+            <option value="3000+" data-i18n="budget.5">€3,000+</option>
+            <option value="discuss" data-i18n="budget.6">Let's Discuss</option>
           </select>
           <span class="field-error" data-i18n="err.budget">Please select a budget range.</span>
         </div>
         <div class="form-group full-width">
           <label for="description"><span data-i18n="form.desc">Project Description</span> <span class="req-star">*</span></label>
-          <textarea id="description" name="description" rows="5" placeholder="Describe your project, goals, timeline, and any specific requirements..." required></textarea>
+          <textarea id="description" name="description" rows="5" placeholder="Describe your business, what the site needs to do, your target audience, any must-have features..." required></textarea>
           <span class="field-error" data-i18n="err.desc">Please describe your project (minimum 20 characters).</span>
         </div>
         <div class="form-group full-width">
-          <label for="design"><span data-i18n="form.design">Design Preferences / Inspirations</span></label>
-          <textarea id="design" name="design" rows="3" placeholder="Colors, styles, references, mood boards, links to inspiration..."></textarea>
+          <label for="design"><span data-i18n="form.design">Design Preferences / Inspiration</span></label>
+          <textarea id="design" name="design" rows="3" placeholder="Colours, styles, competitor sites you like, mood boards, links..."></textarea>
         </div>
         <div class="form-group full-width">
           <label for="deadline"><span data-i18n="form.deadline">Desired Deadline</span></label>
@@ -398,7 +334,7 @@
           <label class="checkbox-label">
             <input type="checkbox" id="agree" name="agree" required />
             <span class="checkmark"></span>
-            <span data-i18n="form.agree">I agree that Uroboru Office may contact me regarding my request.</span>
+            <span data-i18n="form.agree">I agree that Uroboru Office may contact me regarding my request and I have read the </span><a href="legal.html" data-i18n="form.agree.legal">Privacy Policy</a><span data-i18n="form.agree2">.</span>
             <span class="req-star"> *</span>
           </label>
           <span class="field-error" data-i18n="err.agree">You must agree to be contacted.</span>
@@ -410,9 +346,7 @@
           </button>
         </div>
         <div class="form-success" id="formSuccess">
-          <div class="success-ring">
-            <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" fill="none" stroke="#c9a96e" stroke-width="1.5"/><circle cx="40" cy="40" r="26" fill="none" stroke="#c9a96e" stroke-width="0.7" opacity="0.4"/><path d="M24 40l10 10 22-20" stroke="#c9a96e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <div class="success-ring"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34" fill="none" stroke="#c9a96e" stroke-width="1.5"/><circle cx="40" cy="40" r="26" fill="none" stroke="#c9a96e" stroke-width="0.7" opacity="0.4"/><path d="M24 40l10 10 22-20" stroke="#c9a96e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h3 data-i18n="form.success.title">Request Sent!</h3>
           <p data-i18n="form.success.text">Thank you for reaching out. We'll get back to you within 24 hours.</p>
         </div>
@@ -431,7 +365,7 @@
       <div class="contact-grid">
         <div class="contact-item reveal" style="--delay:0.05s">
           <div class="contact-num">01</div>
-          <h4 data-i18n="contact.address">Address</h4>
+          <h4 data-i18n="contact.location">Location</h4>
           <p>Athens, Greece</p>
         </div>
         <div class="contact-item reveal" style="--delay:0.1s">
@@ -441,8 +375,8 @@
         </div>
         <div class="contact-item reveal" style="--delay:0.15s">
           <div class="contact-num">03</div>
-          <h4 data-i18n="contact.hours">Business Hours</h4>
-          <p data-i18n="contact.hours.val">Mon–Fri, 09:00–18:00</p>
+          <h4 data-i18n="contact.hours">Hours</h4>
+          <p data-i18n="contact.hours.val">Mon–Fri, 09:00–18:00 EET</p>
         </div>
       </div>
     </div>
@@ -454,22 +388,22 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <svg class="footer-ring" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="19" fill="none" stroke="#c9a96e" stroke-width="4"
-            stroke-dasharray="104 20" stroke-linecap="round" opacity="0.6"/>
-          <circle cx="25" cy="25" r="11" fill="none" stroke="#c9a96e" stroke-width="1.2"
-            stroke-dasharray="56 14" stroke-linecap="round" opacity="0.3"/>
+          <circle cx="25" cy="25" r="19" fill="none" stroke="#c9a96e" stroke-width="4" stroke-dasharray="104 20" stroke-linecap="round" opacity="0.6"/>
+          <circle cx="25" cy="25" r="11" fill="none" stroke="#c9a96e" stroke-width="1.2" stroke-dasharray="56 14" stroke-linecap="round" opacity="0.3"/>
           <polygon points="25,19 30,25 25,31 20,25" fill="#c9a96e" opacity="0.5"/>
         </svg>
         <span class="footer-name">Uroboru Office</span>
       </div>
-      <p class="footer-tagline" data-i18n="footer.tagline">The cycle continues.</p>
+      <p class="footer-tagline" data-i18n="footer.tagline">AI-Powered Web Creation. The cycle continues.</p>
       <nav class="footer-nav">
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#services" data-i18n="nav.services">Services</a>
-        <a href="#request" data-i18n="nav.request">Custom Request</a>
+        <a href="order.html" data-i18n="nav.pricing">Pricing</a>
+        <a href="#request" data-i18n="nav.request">Request</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="legal.html" data-i18n="nav.legal">Legal</a>
       </nav>
-      <p class="footer-copy" data-i18n="footer.copy">© 2026 Uroboru Office. All rights reserved.</p>
+      <p class="footer-copy" data-i18n="footer.copy">© 2026 Uroboru Office. All rights reserved. <a href="legal.html" data-i18n="footer.privacy">Privacy Policy</a> · <a href="legal.html#terms" data-i18n="footer.terms">Terms</a></p>
     </div>
   </footer>
 
