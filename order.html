@@ -23,7 +23,7 @@
           <circle cx="25" cy="25" r="10" fill="none" stroke="url(#lgNav2)" stroke-width="1.5" stroke-dasharray="52 14" stroke-linecap="round" opacity="0.55"/>
           <polygon points="25,19 29,25 25,31 21,25" fill="url(#lgNav2)" opacity="0.7"/>
         </svg>
-        <span class="logo-text">Uroboru Office</span>
+        <span class="logo-text"><span class="logo-small">office</span><span class="logo-big">Uroboru</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
@@ -247,6 +247,114 @@
     </div>
   </section>
 
+  <!-- MAINTENANCE -->
+  <section class="section pkg-section" id="maintenance">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="maint.tag">Monthly Care</div>
+        <h2 data-i18n="maint.title">Maintenance Plans</h2>
+        <div class="divider"></div>
+        <p class="section-sub" data-i18n="maint.sub">Your website needs care after launch — security patches, speed optimisation, backups and content updates. We handle it all so you never have to worry.</p>
+      </div>
+      <div class="maint-grid">
+        <div class="maint-card reveal" style="--delay:0.05s">
+          <div class="maint-icon">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M24 14v10l6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="maint-label" data-i18n="maint.basic.label">Basic</div>
+          <div class="maint-price"><span class="pkg-currency">€</span><span class="pkg-amount" style="font-size:2.6rem">50</span><span class="maint-per" data-i18n="maint.per">/month</span></div>
+          <p class="maint-tagline" data-i18n="maint.basic.tagline">Set-and-forget security & uptime.</p>
+          <ul class="pkg-features maint-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.basic.f1">Monthly CMS & plugin updates</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.basic.f2">Daily automated backups</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.basic.f3">Uptime & performance monitoring</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.basic.f4">Security scanning & malware removal</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.basic.f5">Email support (48h response)</span></li>
+            <li class="feat-no"><span class="feat-x">✕</span> <span data-i18n="maint.basic.n1">Content / text updates</span></li>
+            <li class="feat-no"><span class="feat-x">✕</span> <span data-i18n="maint.basic.n2">Monthly performance report</span></li>
+          </ul>
+          <button class="btn-order btn-primary" onclick="openOrder('maint-basic','€50/mo')" data-i18n="maint.cta">Add to My Plan</button>
+        </div>
+        <div class="maint-card maint-featured reveal" style="--delay:0.12s">
+          <div class="pkg-badge" data-i18n="pkg.popular">Most Popular</div>
+          <div class="maint-icon">
+            <svg viewBox="0 0 48 48"><polygon points="24,4 29,18 44,18 32,27 37,42 24,33 11,42 16,27 4,18 19,18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="maint-label" data-i18n="maint.pro.label">Pro</div>
+          <div class="maint-price"><span class="pkg-currency">€</span><span class="pkg-amount" style="font-size:2.6rem">100</span><span class="maint-per" data-i18n="maint.per">/month</span></div>
+          <p class="maint-tagline" data-i18n="maint.pro.tagline">Full care + content updates every month.</p>
+          <ul class="pkg-features maint-features">
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.pro.f1">Everything in Basic</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.pro.f2">Up to 2h content updates/month</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.pro.f3">Monthly performance & analytics report</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.pro.f4">Priority support (12h response)</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.pro.f5">1 new AI blog post / month</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.pro.f6">Minor design tweaks on request</span></li>
+            <li><span class="feat-check">✓</span> <span data-i18n="maint.pro.f7">Quarterly SEO health check</span></li>
+          </ul>
+          <button class="btn-order btn-primary" onclick="openOrder('maint-pro','€100/mo')" data-i18n="maint.cta">Add to My Plan</button>
+        </div>
+      </div>
+      <p class="maint-note reveal" style="--delay:0.2s" data-i18n="maint.note">Maintenance plans can be added to any package at checkout. Cancel anytime with 30 days' notice.</p>
+    </div>
+  </section>
+
+  <!-- ADD-ONS -->
+  <section class="section pkg-section pkg-dark" id="addons">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="addon.tag">Extras</div>
+        <h2 data-i18n="addon.title">Add-Ons</h2>
+        <div class="divider"></div>
+        <p class="section-sub" data-i18n="addon.sub">Enhance any package with these one-time add-ons. Mix and match to build exactly what your business needs.</p>
+      </div>
+
+      <div class="addon-category reveal">
+        <h3 class="addon-cat-title" data-i18n="addon.cat1">Content & Design</h3>
+        <div class="addon-grid">
+          <div class="addon-card"><div class="addon-price">€80</div><h4 data-i18n="addon.1.t">Extra Language</h4><p data-i18n="addon.1.d">Add a full Greek or English version to any site.</p></div>
+          <div class="addon-card"><div class="addon-price">€120</div><h4 data-i18n="addon.2.t">Logo Design</h4><p data-i18n="addon.2.d">AI-assisted logo + 2 colour variants, delivered in PNG, SVG & PDF.</p></div>
+          <div class="addon-card"><div class="addon-price">€40<span class="addon-unit" data-i18n="addon.per.page">/page</span></div><h4 data-i18n="addon.3.t">Extra Pages</h4><p data-i18n="addon.3.d">Add pages beyond your package limit — same quality, same speed.</p></div>
+          <div class="addon-card"><div class="addon-price">€150</div><h4 data-i18n="addon.4.t">Blog Setup + 5 AI Posts</h4><p data-i18n="addon.4.d">Full blog configuration with 5 SEO-optimised AI-written articles ready to publish.</p></div>
+        </div>
+      </div>
+
+      <div class="addon-category reveal" style="--delay:0.1s">
+        <h3 class="addon-cat-title" data-i18n="addon.cat2">Technical</h3>
+        <div class="addon-grid">
+          <div class="addon-card"><div class="addon-price">€60</div><h4 data-i18n="addon.5.t">Custom Contact Form</h4><p data-i18n="addon.5.d">Multi-step form with conditional logic, file upload and CRM connection.</p></div>
+          <div class="addon-card"><div class="addon-price">€80</div><h4 data-i18n="addon.6.t">Speed Optimisation</h4><p data-i18n="addon.6.d">Core Web Vitals audit + image compression, lazy loading and caching setup.</p></div>
+          <div class="addon-card"><div class="addon-price">€40</div><h4 data-i18n="addon.7.t">Cookie Consent (GDPR)</h4><p data-i18n="addon.7.d">GDPR-compliant cookie banner with granular consent and preference storage.</p></div>
+          <div class="addon-card"><div class="addon-price">€60</div><h4 data-i18n="addon.8.t">Live Chat Widget</h4><p data-i18n="addon.8.d">Real-time chat integration (Tawk.to, Crisp or similar) fully configured.</p></div>
+        </div>
+      </div>
+
+      <div class="addon-category reveal" style="--delay:0.15s">
+        <h3 class="addon-cat-title" data-i18n="addon.cat3">Marketing</h3>
+        <div class="addon-grid">
+          <div class="addon-card"><div class="addon-price">€60</div><h4 data-i18n="addon.9.t">Advanced Analytics</h4><p data-i18n="addon.9.d">GA4 + Search Console + conversion tracking fully configured and tested.</p></div>
+          <div class="addon-card"><div class="addon-price">€80</div><h4 data-i18n="addon.10.t">Local SEO Setup</h4><p data-i18n="addon.10.d">Google Business Profile optimisation, local schema markup and citation building.</p></div>
+          <div class="addon-card"><div class="addon-price">€120</div><h4 data-i18n="addon.11.t">Google Ads Setup</h4><p data-i18n="addon.11.d">AI-written ad copy, campaign structure, keyword research and conversion tracking.</p></div>
+          <div class="addon-card"><div class="addon-price">€80</div><h4 data-i18n="addon.12.t">Email Marketing Setup</h4><p data-i18n="addon.12.d">Mailchimp / Brevo account setup, signup form, welcome sequence and template.</p></div>
+        </div>
+      </div>
+
+      <div class="addon-category reveal" style="--delay:0.2s">
+        <h3 class="addon-cat-title" data-i18n="addon.cat4">E-commerce</h3>
+        <div class="addon-grid">
+          <div class="addon-card"><div class="addon-price">€200</div><h4 data-i18n="addon.13.t">Booking System</h4><p data-i18n="addon.13.d">Real-time availability calendar, automated confirmations and payment collection.</p></div>
+          <div class="addon-card"><div class="addon-price">€50<span class="addon-unit">/50 products</span></div><h4 data-i18n="addon.14.t">Product Import</h4><p data-i18n="addon.14.d">Bulk import from CSV, spreadsheet or existing platform with AI descriptions.</p></div>
+          <div class="addon-card"><div class="addon-price">€80</div><h4 data-i18n="addon.15.t">Abandoned Cart Recovery</h4><p data-i18n="addon.15.d">Automated email sequence to recover lost sales — typically increases revenue 5–15%.</p></div>
+          <div class="addon-card"><div class="addon-price">€300+</div><h4 data-i18n="addon.16.t">AI Chatbot</h4><p data-i18n="addon.16.d">Trained on your products and FAQs. Handles orders, queries and support 24/7.</p></div>
+        </div>
+      </div>
+
+      <div class="addon-cta reveal" style="--delay:0.25s">
+        <p data-i18n="addon.note">Need an add-on not listed? <a href="index.html#request" data-i18n="addon.note.link">Send us a custom request</a> — we'll quote it within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ORDER FORM MODAL -->
   <div class="modal-overlay" id="orderModal">
     <div class="modal-box">
@@ -339,7 +447,29 @@
     </div>
   </footer>
 
+  <!-- QUIZ MODAL -->
+  <div class="modal-overlay" id="quizModal">
+    <div class="modal-box quiz-box">
+      <button class="modal-close" onclick="closeQuiz()">✕</button>
+      <div id="quizContent"></div>
+      <div class="quiz-nav">
+        <button class="btn-ghost quiz-back-btn" id="quizBackBtn" onclick="quizBack()" style="display:none">← <span data-i18n="quiz.back">Back</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING QUIZ BUTTON -->
+  <button class="quiz-float" onclick="openQuiz()" title="Find your package">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="15" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="80 20" stroke-linecap="round"/>
+      <circle cx="18" cy="18" r="8" stroke="#c9a96e" stroke-width="0.8" opacity="0.5"/>
+      <text x="18" y="22" text-anchor="middle" font-family="Cinzel,serif" font-size="10" fill="#c9a96e">?</text>
+    </svg>
+    <span data-i18n="quiz.float">Find My Package</span>
+  </button>
+
   <script src="main.js"></script>
   <script src="order.js"></script>
+  <script src="quiz.js"></script>
 </body>
 </html>

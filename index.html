@@ -23,7 +23,7 @@
           <circle cx="25" cy="25" r="10" fill="none" stroke="url(#lgNav)" stroke-width="1.5" stroke-dasharray="52 14" stroke-linecap="round" opacity="0.55"/>
           <polygon points="25,19 29,25 25,31 21,25" fill="url(#lgNav)" opacity="0.7"/>
         </svg>
-        <span class="logo-text">Uroboru Office</span>
+        <span class="logo-text"><span class="logo-small">office</span><span class="logo-big">Uroboru</span></span>
       </div>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about" data-i18n="nav.about">About</a></li>
@@ -92,7 +92,8 @@
       </div>
       <div class="hero-cta-wrap">
         <a href="order.html" class="btn-primary" data-i18n="hero.cta">See Packages & Prices</a>
-        <a href="#request" class="btn-ghost" data-i18n="hero.cta2">Custom Request</a>
+        <button class="btn-ghost" onclick="openQuiz()" data-i18n="hero.quiz">Find My Package</button>
+        <a href="#request" class="btn-ghost btn-ghost-dim" data-i18n="hero.cta2">Custom Request</a>
       </div>
     </div>
     <div class="scroll-line">
@@ -407,6 +408,24 @@
     </div>
   </footer>
 
+  <!-- QUIZ MODAL -->
+  <div class="modal-overlay" id="quizModal">
+    <div class="modal-box quiz-box">
+      <button class="modal-close" onclick="closeQuiz()">✕</button>
+      <div id="quizContent"></div>
+      <div class="quiz-nav">
+        <button class="btn-ghost quiz-back-btn" id="quizBackBtn" onclick="quizBack()" style="display:none">← <span data-i18n="quiz.back">Back</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating quiz trigger -->
+  <button class="quiz-float" onclick="openQuiz()" title="Find your package">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg>
+    <span data-i18n="quiz.float">Find Package</span>
+  </button>
+
   <script src="main.js"></script>
+  <script src="quiz.js"></script>
 </body>
 </html>
