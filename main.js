@@ -2,6 +2,17 @@
 const i18n = {
   en: {
     'nav.about':        'About',
+    'testimonials.tag':   'What Clients Say',
+    'testimonials.title': 'Client Testimonials',
+    'exit.badge':         'Limited Offer',
+    'exit.title':         'Before You Go…',
+    'exit.body':          'Get 15% off your first project when you leave your email. No spam — just your discount.',
+    'exit.placeholder':   'your@email.com',
+    'exit.cta':           'Claim Discount',
+    'exit.dismiss':       'No thanks, I\'ll pay full price',
+    'exit.success':       'Great! We\'ll send your discount code within a few minutes.',
+    'promo.default':      '',
+    'announce.default':   '',
     'nav.services':     'Services',
     'nav.request':      'Custom Request',
     'nav.contact':      'Contact',
@@ -77,6 +88,17 @@ const i18n = {
   },
   el: {
     'nav.about':        'Σχετικά',
+    'testimonials.tag':   'Τι Λένε οι Πελάτες',
+    'testimonials.title': 'Μαρτυρίες Πελατών',
+    'exit.badge':         'Περιορισμένη Προσφορά',
+    'exit.title':         'Φεύγετε;',
+    'exit.body':          'Αφήστε το email σας και πάρτε 15% έκπτωση στο πρώτο σας project. Χωρίς spam — μόνο η έκπτωσή σας.',
+    'exit.placeholder':   'το@email.σας',
+    'exit.cta':           'Πάρτε την Έκπτωση',
+    'exit.dismiss':       'Όχι ευχαριστώ, θα πληρώσω κανονικά',
+    'exit.success':       'Τέλεια! Θα σας στείλουμε τον κωδικό έκπτωσης σε λίγα λεπτά.',
+    'promo.default':      '',
+    'announce.default':   '',
     'nav.services':     'Υπηρεσίες',
     'nav.request':      'Αίτηση',
     'nav.contact':      'Επικοινωνία',
@@ -319,21 +341,177 @@ form.addEventListener('submit', async (e) => {
     `\nDesign Preferences:\n${data.design || 'N/A'}`,
   ].join('\n');
 
-  /* Simulate async (replace with real API call if backend exists) */
-  await new Promise(r => setTimeout(r, 900));
+  /* Dual-write: Firestore + mailto */
+  await saveContactMessage(data);
+  await new Promise(r => setTimeout(r, 600));
 
   submitBtn.classList.remove('loading');
   submitBtn.disabled = false;
 
-  /* Open mailto as delivery mechanism */
   const subject = encodeURIComponent(`Uroboru Office – Custom Request from ${data.fname}`);
   const bodyEncoded = encodeURIComponent(body);
   window.location.href = `mailto:grigoriosdimopulos@gmail.com?subject=${subject}&body=${bodyEncoded}`;
 
-  /* Show success state */
   form.style.display = 'none';
   successBox.classList.add('visible');
 });
 
+/* ── Firebase: site config loader ── */
+const DEFAULT_TESTIMONIALS = [
+  {
+    name: 'Δημήτρης Παπαδόπουλος', location: 'Αθήνα', rating: 5,
+    text: {
+      en: 'Uroboru Office transformed our brand identity. The process was seamless, the result timeless. Delivered ahead of schedule and beyond our expectations.',
+      el: 'Το Uroboru Office μεταμόρφωσε την επωνυμία μας. Η διαδικασία ήταν απρόσκοπτη, το αποτέλεσμα διαχρονικό. Παρέδωσαν πριν την προθεσμία.'
+    },
+    package: 'Design & Branding'
+  },
+  {
+    name: 'Elena Stavros', location: 'Θεσσαλονίκη', rating: 5,
+    text: {
+      en: 'Outstanding web development. Our new site loads instantly and converts visitors at twice our previous rate. Worth every euro — and then some.',
+      el: 'Εξαιρετική ανάπτυξη ιστοσελίδας. Το site μας φορτώνει άμεσα και μετατρέπει διπλάσιους επισκέπτες. Άξιζε κάθε ευρώ.'
+    },
+    package: 'Web Development'
+  },
+  {
+    name: 'Νίκος Αλεξίου', location: 'Πάτρα', rating: 5,
+    text: {
+      en: 'The digital marketing strategy generated 3× our normal leads in the first month. Professional, creative, and genuinely results-driven.',
+      el: 'Η στρατηγική ψηφιακού marketing έφερε τριπλάσιους leads στον πρώτο μήνα. Επαγγελματικοί, δημιουργικοί και αποτελεσματικοί.'
+    },
+    package: 'Digital Marketing'
+  }
+];
+
+function starsHTML(n) {
+  return '★'.repeat(n) + '☆'.repeat(5 - n);
+}
+
+function renderTestimonials(items) {
+  const grid = document.getElementById('testimonialsGrid');
+  if (!grid) return;
+  grid.innerHTML = items.map(t => {
+    const text = (typeof t.text === 'object') ? (t.text[currentLang] || t.text.en || '') : (t.text || '');
+    const initial = t.name ? t.name[0].toUpperCase() : '?';
+    return `
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">${starsHTML(t.rating || 5)}</div>
+        <p class="testimonial-text">"${text}"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">${initial}</div>
+          <div>
+            <div class="testimonial-name">${t.name}</div>
+            <div class="testimonial-location">${t.location || ''}</div>
+          </div>
+        </div>
+        ${t.package ? `<div class="testimonial-package">${t.package}</div>` : ''}
+      </div>`;
+  }).join('');
+  grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
+
+async function loadSiteConfig() {
+  if (!window.db) { renderTestimonials(DEFAULT_TESTIMONIALS); return; }
+  try {
+    const configSnap = await window.db.collection('site-config').doc('main').get();
+    if (configSnap.exists) {
+      const cfg = configSnap.data();
+      applyPromoBanner(cfg.promoBanner);
+      applyAnnouncement(cfg.announcement);
+      applyStats(cfg.stats);
+      if (cfg.contactEmail) {
+        document.querySelectorAll('a[href^="mailto:grigoriosdimopulos"]').forEach(a => {
+          a.href = `mailto:${cfg.contactEmail}`;
+          if (a.textContent.includes('grigoriosdimopulos')) a.textContent = cfg.contactEmail;
+        });
+      }
+    }
+    const tSnap = await window.db.collection('testimonials').orderBy('order').get();
+    const active = [];
+    tSnap.forEach(doc => { const d = doc.data(); if (d.active !== false) active.push(d); });
+    renderTestimonials(active.length ? active : DEFAULT_TESTIMONIALS);
+  } catch {
+    renderTestimonials(DEFAULT_TESTIMONIALS);
+  }
+}
+
+function applyPromoBanner(cfg) {
+  const bar = document.getElementById('promoBanner');
+  if (!bar || !cfg || !cfg.active) return;
+  if (sessionStorage.getItem('promo_dismissed')) return;
+  const text = cfg.text ? (cfg.text[currentLang] || cfg.text.en || '') : '';
+  if (!text) return;
+  bar.querySelector('.promo-text').innerHTML = text;
+  if (cfg.bgColor) bar.style.background = cfg.bgColor;
+  bar.classList.add('visible');
+  document.body.classList.add('has-promo');
+  const h = bar.offsetHeight;
+  document.documentElement.style.setProperty('--promo-h', h + 'px');
+}
+
+function applyAnnouncement(cfg) {
+  const bar = document.getElementById('announcementBar');
+  if (!bar || !cfg || !cfg.active) return;
+  if (sessionStorage.getItem('announce_dismissed')) return;
+  const text = cfg.text ? (cfg.text[currentLang] || cfg.text.en || '') : '';
+  if (!text) return;
+  bar.querySelector('.announce-text').textContent = text;
+  bar.classList.add('visible');
+}
+
+function applyStats(stats) {
+  if (!stats) return;
+  const map = { stat0: stats.s0, stat1: stats.s1, stat2: stats.s2, stat3: stats.s3 };
+  document.querySelectorAll('.stat-number').forEach((el, i) => {
+    const val = stats['s' + i];
+    if (val !== undefined) el.dataset.target = val;
+  });
+}
+
+/* Promo & announcement dismiss handlers */
+document.addEventListener('DOMContentLoaded', () => {
+  const pb = document.getElementById('promoBanner');
+  if (pb) {
+    pb.querySelector('.promo-banner-close')?.addEventListener('click', () => {
+      pb.classList.remove('visible');
+      document.body.classList.remove('has-promo');
+      sessionStorage.setItem('promo_dismissed', '1');
+    });
+  }
+  const ab = document.getElementById('announcementBar');
+  if (ab) {
+    ab.querySelector('.announcement-bar-close')?.addEventListener('click', () => {
+      ab.classList.remove('visible');
+      sessionStorage.setItem('announce_dismissed', '1');
+    });
+  }
+});
+
+/* ── Firebase: dual-write contact form ── */
+async function saveContactMessage(data) {
+  if (!window.db) return;
+  try {
+    await window.db.collection('messages').add({
+      type: 'contact',
+      name: data.fname || '',
+      email: data.email || '',
+      phone: data.phone || '',
+      company: data.company || '',
+      service: data.service || '',
+      budget: data.budget || '',
+      deadline: data.deadline || '',
+      description: data.description || '',
+      design: data.design || '',
+      lang: data.lang || 'en',
+      read: false,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    });
+  } catch (e) {
+    console.warn('[Uroboru] Firestore write failed:', e.message);
+  }
+}
+
 /* ── Init ── */
 applyTranslations();
+loadSiteConfig();

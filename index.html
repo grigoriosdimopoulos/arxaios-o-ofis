@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uroboru Office</title>
+  <title>Uroboru Office — urobor.us</title>
+  <meta name="description" content="Uroboru Office — Premium creative studio. Design, web development, strategy and digital marketing. Eternal cycles, modern solutions." />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <!-- Firebase compat SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
 </head>
 <body>
+
+  <!-- PROMO BANNER -->
+  <div class="promo-banner" id="promoBanner">
+    <span class="promo-text"></span>
+    <button class="promo-banner-close" aria-label="Close">✕</button>
+  </div>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <span class="announce-text"></span>
+    <button class="announcement-bar-close" aria-label="Close">✕</button>
+  </div>
 
   <!-- NAV -->
   <nav class="navbar" id="navbar">
@@ -127,6 +145,7 @@
         <p class="hero-eyebrow" data-i18n="hero.eyebrow">Premium Creative Studio</p>
         <h1 class="hero-title" data-i18n="hero.title">Uroboru Office</h1>
         <p class="hero-sub" data-i18n="hero.sub">Eternal Cycles. Modern Solutions.</p>
+        <span class="hero-domain">urobor.us</span>
       </div>
       <div class="hero-cta-wrap">
         <a href="#services" class="btn-primary" data-i18n="hero.cta">Explore Services</a>
@@ -288,6 +307,20 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag" data-i18n="testimonials.tag">What Clients Say</div>
+        <h2 data-i18n="testimonials.title">Client Testimonials</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="testimonials-grid" id="testimonialsGrid">
+        <!-- populated by main.js from Firestore or defaults -->
       </div>
     </div>
   </section>
@@ -469,10 +502,40 @@
         <a href="#request" data-i18n="nav.request">Custom Request</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <p class="footer-copy" data-i18n="footer.copy">© 2026 Uroboru Office. All rights reserved.</p>
+      <p class="footer-copy"><span style="color:var(--gold);letter-spacing:0.08em">urobor.us</span> &nbsp;·&nbsp; <span data-i18n="footer.copy">© 2026 Uroboru Office. All rights reserved.</span></p>
     </div>
   </footer>
 
+  <!-- Exit intent popup -->
+  <div class="exit-overlay" id="exitOverlay">
+    <div class="exit-modal">
+      <button class="exit-modal-close" id="exitClose">✕</button>
+      <div class="exit-badge" data-i18n="exit.badge">Limited Offer</div>
+      <h3 data-i18n="exit.title">Before You Go…</h3>
+      <p data-i18n="exit.body">Get 15% off your first project when you leave your email. No spam — just your discount.</p>
+      <div class="exit-form-wrap">
+        <div class="exit-email-row">
+          <input type="email" id="exitEmail" data-i18n-placeholder="exit.placeholder" placeholder="your@email.com" />
+          <button id="exitSubmit" data-i18n="exit.cta">Claim Discount</button>
+        </div>
+        <p class="exit-dismiss" id="exitDismiss" data-i18n="exit.dismiss">No thanks, I'll pay full price</p>
+      </div>
+      <div class="exit-success" id="exitSuccess">
+        <p data-i18n="exit.success">Great! We'll send your discount code within a few minutes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social proof toast -->
+  <div class="sp-toast" id="spToast">
+    <div class="sp-avatar" id="spAvatar"></div>
+    <div>
+      <div class="sp-text" id="spText"></div>
+      <div class="sp-time" id="spTime"></div>
+    </div>
+  </div>
+
   <script src="main.js"></script>
+  <script src="marketing.js"></script>
 </body>
 </html>
