@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Uroboru Office</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Firebase compat SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
+</head>
+<body class="admin-page">
+
+  <!-- ── LOGIN ── -->
+  <div class="admin-login" id="adminLogin">
+    <div class="admin-login-box">
+      <div class="admin-login-logo">
+        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e2bc7a"/><stop offset="100%" stop-color="#7a5c1e"/>
+            </linearGradient>
+          </defs>
+          <circle cx="25" cy="25" r="18" fill="none" stroke="url(#lg)" stroke-width="4.5" stroke-dasharray="98 18" stroke-linecap="round"/>
+          <polygon points="25,19 29,25 25,31 21,25" fill="url(#lg)" opacity="0.8"/>
+        </svg>
+        <p>UROBORU OFFICE</p>
+      </div>
+      <h2>Admin Panel</h2>
+      <div class="admin-login-error" id="loginError"></div>
+      <div class="admin-field">
+        <label>Email</label>
+        <input type="email" id="loginEmail" autocomplete="username" placeholder="admin@urobor.us" />
+      </div>
+      <div class="admin-field">
+        <label>Password</label>
+        <input type="password" id="loginPass" autocomplete="current-password" placeholder="••••••••" />
+      </div>
+      <button class="btn-admin-primary" id="loginBtn">Sign In</button>
+    </div>
+  </div>
+
+  <!-- ── DASHBOARD ── -->
+  <div class="admin-dashboard" id="adminDashboard">
+
+    <!-- Top bar -->
+    <div class="admin-topbar">
+      <div class="admin-topbar-logo">UROBORU · Admin</div>
+      <div class="admin-topbar-right">
+        <span class="admin-user" id="adminUserEmail"></span>
+        <button class="btn-logout" id="logoutBtn">Sign Out</button>
+      </div>
+    </div>
+
+    <div class="admin-body">
+
+      <!-- Sidebar -->
+      <nav class="admin-sidebar">
+        <div class="admin-nav-item active" data-tab="inbox">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4z"/><path d="M4 9h16"/></svg>
+          Inbox <span class="admin-nav-badge" id="unreadBadge" style="display:none">0</span>
+        </div>
+        <div class="admin-nav-item" data-tab="promo">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+          Promo Banner
+        </div>
+        <div class="admin-nav-item" data-tab="announce">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>
+          Announcement
+        </div>
+        <div class="admin-nav-item" data-tab="testimonials">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Testimonials
+        </div>
+        <div class="admin-nav-item" data-tab="social">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Social Proof
+        </div>
+        <div class="admin-nav-item" data-tab="settings">
+          <svg class="admin-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </div>
+      </nav>
+
+      <!-- Main content -->
+      <main class="admin-main">
+
+        <!-- ── INBOX TAB ── -->
+        <div class="admin-tab active" id="tab-inbox">
+          <h2 class="admin-tab-title">Inbox</h2>
+          <p class="admin-tab-sub">All contact requests and orders from your site.</p>
+
+          <div class="inbox-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="unread">Unread</button>
+            <button class="filter-btn" data-filter="contact">Contact</button>
+            <button class="filter-btn" data-filter="order">Order</button>
+          </div>
+
+          <table class="inbox-table" id="inboxTable">
+            <thead>
+              <tr>
+                <th style="width:8px"></th>
+                <th>From</th>
+                <th>Type</th>
+                <th>Service</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="inboxBody">
+              <tr><td colspan="5"><div class="empty-state">Loading messages…</div></td></tr>
+            </tbody>
+          </table>
+
+          <div class="msg-detail" id="msgDetail">
+            <div class="msg-detail-header">
+              <div class="msg-detail-from">
+                <h4 id="detailName"></h4>
+                <p id="detailEmail"></p>
+              </div>
+              <div class="msg-detail-actions">
+                <button class="btn-sm" id="markReadBtn">Mark as Read</button>
+                <button class="btn-sm danger" id="deleteMsg">Delete</button>
+              </div>
+            </div>
+            <div class="msg-meta" id="msgMeta"></div>
+            <div class="msg-body" id="msgBody"></div>
+          </div>
+        </div>
+
+        <!-- ── PROMO BANNER TAB ── -->
+        <div class="admin-tab" id="tab-promo">
+          <h2 class="admin-tab-title">Promo Banner</h2>
+          <p class="admin-tab-sub">Full-width gold strip shown above the navbar. Dismissible by visitors.</p>
+
+          <div class="config-card">
+            <div class="toggle-wrap">
+              <label class="toggle"><input type="checkbox" id="promoActive" /><span class="toggle-slider"></span></label>
+              <span class="toggle-label">Banner active</span>
+            </div>
+            <div class="lang-tabs">
+              <button class="lang-tab-btn active" data-lang="en">English</button>
+              <button class="lang-tab-btn" data-lang="el">Greek</button>
+            </div>
+            <div class="admin-field">
+              <label>Banner text (HTML allowed: &lt;a href="..."&gt;link&lt;/a&gt;)</label>
+              <textarea id="promoTextEn" rows="2" placeholder='e.g. Summer offer: <a href="#request">20% off</a> all projects this month!'></textarea>
+            </div>
+            <div class="admin-field" style="display:none" id="promoElWrap">
+              <label>Banner text — Greek</label>
+              <textarea id="promoTextEl" rows="2" placeholder="π.χ. Καλοκαιρινή προσφορά: 20% έκπτωση σε όλα τα projects αυτόν τον μήνα!"></textarea>
+            </div>
+            <div class="color-row">
+              <label>Background colour</label>
+              <input type="color" id="promoBgColor" value="#c9a96e" />
+              <span id="promoBgHex" style="font-size:0.8rem;color:var(--text-muted)">#c9a96e</span>
+            </div>
+            <div class="admin-save-row">
+              <button class="btn-save" id="savePromo">Save Banner</button>
+              <span class="admin-save-feedback" id="promoFeedback">Saved ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ANNOUNCEMENT TAB ── -->
+        <div class="admin-tab" id="tab-announce">
+          <h2 class="admin-tab-title">Announcement</h2>
+          <p class="admin-tab-sub">A subtle notice bar shown below the navbar. Good for holiday closures or new service launches.</p>
+
+          <div class="config-card">
+            <div class="toggle-wrap">
+              <label class="toggle"><input type="checkbox" id="announceActive" /><span class="toggle-slider"></span></label>
+              <span class="toggle-label">Announcement active</span>
+            </div>
+            <div class="lang-tabs">
+              <button class="lang-tab-btn active" data-lang="en">English</button>
+              <button class="lang-tab-btn" data-lang="el">Greek</button>
+            </div>
+            <div class="admin-field">
+              <label>Announcement text — English</label>
+              <textarea id="announceTextEn" rows="2" placeholder="e.g. We're closed 25–26 Dec. Back on 27th. Happy holidays!"></textarea>
+            </div>
+            <div class="admin-field" style="display:none" id="announceElWrap">
+              <label>Announcement text — Greek</label>
+              <textarea id="announceTextEl" rows="2" placeholder="π.χ. Κλειστά 25–26 Δεκ. Επιστροφή στις 27."></textarea>
+            </div>
+            <div class="admin-save-row">
+              <button class="btn-save" id="saveAnnounce">Save Announcement</button>
+              <span class="admin-save-feedback" id="announceFeedback">Saved ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── TESTIMONIALS TAB ── -->
+        <div class="admin-tab" id="tab-testimonials">
+          <h2 class="admin-tab-title">Testimonials</h2>
+          <p class="admin-tab-sub">Manage the customer reviews shown on the homepage. Active testimonials appear on the site.</p>
+
+          <!-- Add form -->
+          <div class="add-form" id="testimonialAddForm">
+            <div class="add-form-title" id="testimonialFormTitle">Add Testimonial</div>
+            <input type="hidden" id="tEditId" value="" />
+            <div class="form-row-2">
+              <div class="admin-field">
+                <label>Name</label>
+                <input type="text" id="tName" placeholder="Δημήτρης Π." />
+              </div>
+              <div class="admin-field">
+                <label>Location / City</label>
+                <input type="text" id="tLocation" placeholder="Αθήνα" />
+              </div>
+            </div>
+            <div class="form-row-2">
+              <div class="admin-field">
+                <label>Service / Package</label>
+                <input type="text" id="tPackage" placeholder="Web Development" />
+              </div>
+              <div class="admin-field">
+                <label>Rating</label>
+                <div class="star-input">
+                  <input type="radio" id="s5" name="tRating" value="5" checked /><label for="s5">★</label>
+                  <input type="radio" id="s4" name="tRating" value="4" /><label for="s4">★</label>
+                  <input type="radio" id="s3" name="tRating" value="3" /><label for="s3">★</label>
+                  <input type="radio" id="s2" name="tRating" value="2" /><label for="s2">★</label>
+                  <input type="radio" id="s1" name="tRating" value="1" /><label for="s1">★</label>
+                </div>
+              </div>
+            </div>
+            <div class="admin-field">
+              <label>Review text — English</label>
+              <textarea id="tTextEn" rows="3" placeholder="Outstanding work…"></textarea>
+            </div>
+            <div class="admin-field">
+              <label>Review text — Greek</label>
+              <textarea id="tTextEl" rows="3" placeholder="Εξαιρετική δουλειά…"></textarea>
+            </div>
+            <div class="form-row-2">
+              <div class="admin-field">
+                <label>Sort order (lower = first)</label>
+                <input type="number" id="tOrder" value="0" min="0" />
+              </div>
+              <div class="admin-field" style="display:flex;align-items:center;gap:0.75rem;padding-top:1.6rem">
+                <label class="toggle"><input type="checkbox" id="tActive" checked /><span class="toggle-slider"></span></label>
+                <span style="font-size:0.85rem;color:var(--text)">Active (shown on site)</span>
+              </div>
+            </div>
+            <div class="admin-save-row">
+              <button class="btn-save" id="saveTestimonial">Save</button>
+              <button class="btn-cancel" id="cancelTestimonial">Cancel</button>
+              <span class="admin-save-feedback" id="testimonialFeedback">Saved ✓</span>
+            </div>
+          </div>
+
+          <div id="testimonialList"><div class="empty-state">Loading…</div></div>
+          <button class="btn-add" id="addTestimonialBtn">+ Add Testimonial</button>
+        </div>
+
+        <!-- ── SOCIAL PROOF TAB ── -->
+        <div class="admin-tab" id="tab-social">
+          <h2 class="admin-tab-title">Social Proof Toasts</h2>
+          <p class="admin-tab-sub">Scripted pop-up notifications shown in the bottom-left corner to build credibility. They cycle automatically.</p>
+
+          <!-- Add form -->
+          <div class="add-form" id="spAddForm">
+            <div class="add-form-title" id="spFormTitle">Add Toast Notification</div>
+            <input type="hidden" id="spEditId" value="" />
+            <div class="form-row-2">
+              <div class="admin-field">
+                <label>Name</label>
+                <input type="text" id="spName" placeholder="Αλέξανδρος Μ." />
+              </div>
+              <div class="admin-field">
+                <label>City</label>
+                <input type="text" id="spCity" placeholder="Αθήνα" />
+              </div>
+            </div>
+            <div class="admin-field">
+              <label>Action text — English</label>
+              <input type="text" id="spActionEn" placeholder="ordered a Web Development package" />
+            </div>
+            <div class="admin-field">
+              <label>Action text — Greek</label>
+              <input type="text" id="spActionEl" placeholder="παρήγγειλε Web Development" />
+            </div>
+            <div class="admin-field">
+              <label>Show after (seconds)</label>
+              <input type="number" id="spDelay" value="30" min="5" />
+            </div>
+            <div class="admin-save-row">
+              <button class="btn-save" id="saveSP">Save</button>
+              <button class="btn-cancel" id="cancelSP">Cancel</button>
+              <span class="admin-save-feedback" id="spFeedback">Saved ✓</span>
+            </div>
+          </div>
+
+          <div id="spList"><div class="empty-state">Loading…</div></div>
+          <button class="btn-add" id="addSPBtn">+ Add Toast</button>
+        </div>
+
+        <!-- ── SETTINGS TAB ── -->
+        <div class="admin-tab" id="tab-settings">
+          <h2 class="admin-tab-title">Settings</h2>
+          <p class="admin-tab-sub">Site-wide configuration — contact email, stat counters, and SEO defaults.</p>
+
+          <div class="config-card">
+            <div class="config-card-title">Contact Email</div>
+            <div class="admin-field">
+              <label>Email address shown on site (and used in mailto links)</label>
+              <input type="email" id="settingsEmail" placeholder="grigoriosdimopulos@gmail.com" />
+            </div>
+          </div>
+
+          <div class="config-card">
+            <div class="config-card-title">Stat Counters</div>
+            <div class="settings-grid">
+              <div class="admin-field">
+                <label>Counter 1 — value (e.g. 150) &amp; label</label>
+                <input type="number" id="stat0val" placeholder="150" min="0" />
+                <input type="text" id="stat0label" placeholder="Projects Delivered" style="margin-top:0.5rem" />
+              </div>
+              <div class="admin-field">
+                <label>Counter 2 — value &amp; label</label>
+                <input type="number" id="stat1val" placeholder="98" min="0" />
+                <input type="text" id="stat1label" placeholder="% Client Satisfaction" style="margin-top:0.5rem" />
+              </div>
+              <div class="admin-field">
+                <label>Counter 3 — value &amp; label</label>
+                <input type="number" id="stat2val" placeholder="7" min="0" />
+                <input type="text" id="stat2label" placeholder="Years of Excellence" style="margin-top:0.5rem" />
+              </div>
+              <div class="admin-field">
+                <label>Counter 4 — value &amp; label</label>
+                <input type="number" id="stat3val" placeholder="40" min="0" />
+                <input type="text" id="stat3label" placeholder="Active Clients" style="margin-top:0.5rem" />
+              </div>
+            </div>
+          </div>
+
+          <div class="config-card">
+            <div class="config-card-title">SEO Defaults</div>
+            <div class="admin-field">
+              <label>Homepage title</label>
+              <input type="text" id="seoTitle" placeholder="Uroboru Office — urobor.us" />
+            </div>
+            <div class="admin-field">
+              <label>Homepage meta description</label>
+              <textarea id="seoDesc" rows="2" placeholder="Premium creative studio. Design, web development, strategy and digital marketing."></textarea>
+            </div>
+          </div>
+
+          <div class="admin-save-row">
+            <button class="btn-save" id="saveSettings">Save All Settings</button>
+            <span class="admin-save-feedback" id="settingsFeedback">Saved ✓</span>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
