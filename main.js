@@ -400,11 +400,11 @@ const i18n = {
 
 let currentLang = localStorage.getItem('lang') || 'el';
 
-function t(key) {
+window.t = function t(key) {
   return i18n[currentLang][key] || i18n['en'][key] || key;
-}
+};
 
-function applyTranslations() {
+window.applyTranslations = function applyTranslations() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     const val = t(key);
@@ -417,7 +417,7 @@ function applyTranslations() {
 function toggleLang() {
   currentLang = currentLang === 'en' ? 'el' : 'en';
   localStorage.setItem('lang', currentLang);
-  applyTranslations();
+  window.applyTranslations();
 }
 
 /* ── Navbar scroll ── */
@@ -738,5 +738,5 @@ async function saveContactMessage(data) {
 }
 
 /* ── Init ── */
-applyTranslations();
+window.applyTranslations();
 loadSiteConfig();

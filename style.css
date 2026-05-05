@@ -21,13 +21,12 @@
   --shadow-sm: 0 4px 20px rgba(0,0,0,0.35);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
   line-height: 1.75;
 }
 
@@ -1079,11 +1078,11 @@ body.has-promo .navbar { top: var(--promo-h, 40px); }
 ══════════════════════════════════════════════════════════ */
 .exit-overlay {
   position: fixed; inset: 0; z-index: 10000;
-  background: rgba(0,0,0,0.76); display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.76); display: none; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none; transition: opacity .35s;
   backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
 }
-.exit-overlay.exit-visible { opacity: 1; pointer-events: all; }
+.exit-overlay.exit-visible { display: flex; opacity: 1; pointer-events: all; }
 .exit-modal {
   background: var(--bg2); border: 1px solid var(--border-hi); border-radius: 16px;
   padding: 3rem 2.5rem; max-width: 460px; width: 90%; text-align: center;

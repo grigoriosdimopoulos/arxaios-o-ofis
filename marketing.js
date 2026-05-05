@@ -19,7 +19,8 @@
     shown = true;
     sessionStorage.setItem(SESSION_KEY, '1');
     overlay.classList.add('exit-visible');
-    /* sync placeholder i18n */
+    /* apply translations fresh so keys always show as real text */
+    if (window.applyTranslations) applyTranslations();
     if (emailIn && window.t) emailIn.placeholder = t('exit.placeholder');
   }
 
