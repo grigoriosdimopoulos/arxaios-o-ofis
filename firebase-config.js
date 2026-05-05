@@ -10,12 +10,13 @@
 //   6. Copy the firebaseConfig object below and replace the placeholders
 
 const firebaseConfig = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID"
+  apiKey:            "AIzaSyCldE1xDKNHVAtRsxT0_ia1pSOp1M8WBqE",
+  authDomain:        "uroborus-ee61e.firebaseapp.com",
+  projectId:         "uroborus-ee61e",
+  storageBucket:     "uroborus-ee61e.firebasestorage.app",
+  messagingSenderId: "455186299383",
+  appId:             "1:455186299383:web:64dd439e657040b19816f2",
+  measurementId:     "G-MD8SVPXKY9"
 };
 
 try {
