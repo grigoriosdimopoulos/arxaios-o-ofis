@@ -986,7 +986,7 @@ a:hover { color: var(--gold2); }
   font-size: 1.1rem; opacity: 0.6; line-height: 1; padding: 4px;
 }
 .promo-banner-close:hover { opacity: 1; }
-body.has-promo .navbar { top: var(--promo-h, 40px); }
+body.has-bars .navbar { top: var(--bars-h, 0px); }
 
 /* ══════════════════════════════════════════════════════════
    ANNOUNCEMENT BAR

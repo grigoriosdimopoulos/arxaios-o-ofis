@@ -553,30 +553,10 @@ form.addEventListener('submit', async (e) => {
   const data = Object.fromEntries(fd.entries());
   data.lang = currentLang;
 
-  /* Build mailto as fallback (since no server backend) */
-  const body = [
-    `Full Name: ${data.fname}`,
-    `Email: ${data.email}`,
-    `Phone: ${data.phone || 'N/A'}`,
-    `Company: ${data.company || 'N/A'}`,
-    `Service: ${data.service}`,
-    `Budget: ${data.budget}`,
-    `Deadline: ${data.deadline || 'N/A'}`,
-    `\nProject Description:\n${data.description}`,
-    `\nDesign Preferences:\n${data.design || 'N/A'}`,
-  ].join('\n');
-
-  /* Dual-write: Firestore + mailto */
   await saveContactMessage(data);
-  await new Promise(r => setTimeout(r, 600));
 
   submitBtn.classList.remove('loading');
   submitBtn.disabled = false;
-
-  const subject = encodeURIComponent(`Uroboru Office – Custom Request from ${data.fname}`);
-  const bodyEncoded = encodeURIComponent(body);
-  window.location.href = `mailto:grigoriosdimopulos@gmail.com?subject=${subject}&body=${bodyEncoded}`;
-
   form.style.display = 'none';
   successBox.classList.add('visible');
 });
@@ -661,6 +641,16 @@ async function loadSiteConfig() {
   }
 }
 
+function updateNavbarOffset() {
+  let total = 0;
+  const pb = document.getElementById('promoBanner');
+  if (pb && pb.classList.contains('visible')) total += pb.offsetHeight;
+  const ab = document.getElementById('announcementBar');
+  if (ab && ab.classList.contains('visible')) total += ab.offsetHeight;
+  document.documentElement.style.setProperty('--bars-h', total + 'px');
+  document.body.classList.toggle('has-bars', total > 0);
+}
+
 function applyPromoBanner(cfg) {
   const bar = document.getElementById('promoBanner');
   if (!bar || !cfg || !cfg.active) return;
@@ -670,9 +660,7 @@ function applyPromoBanner(cfg) {
   bar.querySelector('.promo-text').innerHTML = text;
   if (cfg.bgColor) bar.style.background = cfg.bgColor;
   bar.classList.add('visible');
-  document.body.classList.add('has-promo');
-  const h = bar.offsetHeight;
-  document.documentElement.style.setProperty('--promo-h', h + 'px');
+  updateNavbarOffset();
 }
 
 function applyAnnouncement(cfg) {
@@ -683,6 +671,7 @@ function applyAnnouncement(cfg) {
   if (!text) return;
   bar.querySelector('.announce-text').textContent = text;
   bar.classList.add('visible');
+  updateNavbarOffset();
 }
 
 function applyStats(stats) {
@@ -700,8 +689,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (pb) {
     pb.querySelector('.promo-banner-close')?.addEventListener('click', () => {
       pb.classList.remove('visible');
-      document.body.classList.remove('has-promo');
       sessionStorage.setItem('promo_dismissed', '1');
+      updateNavbarOffset();
     });
   }
   const ab = document.getElementById('announcementBar');
@@ -709,6 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ab.querySelector('.announcement-bar-close')?.addEventListener('click', () => {
       ab.classList.remove('visible');
       sessionStorage.setItem('announce_dismissed', '1');
+      updateNavbarOffset();
     });
   }
 });
