@@ -506,60 +506,62 @@ const form = document.getElementById('requestForm');
 const successBox = document.getElementById('formSuccess');
 const submitBtn = document.getElementById('submitBtn');
 
-const validators = {
-  fname: v => v.trim().length >= 2,
-  email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
-  service: v => v !== '',
-  budget: v => v !== '',
-  description: v => v.trim().length >= 20,
-  agree: () => document.getElementById('agree').checked,
-};
+if (form) {
+  const validators = {
+    fname: v => v.trim().length >= 2,
+    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    service: v => v !== '',
+    budget: v => v !== '',
+    description: v => v.trim().length >= 20,
+    agree: () => document.getElementById('agree').checked,
+  };
 
-function validateField(name) {
-  const el = document.getElementById(name);
-  const group = el ? el.closest('.form-group') : null;
-  if (!group) return true;
-  const val = name === 'agree' ? '' : el.value;
-  const ok = validators[name] ? validators[name](val) : true;
-  group.classList.toggle('has-error', !ok);
-  return ok;
+  const validateField = (name) => {
+    const el = document.getElementById(name);
+    const group = el ? el.closest('.form-group') : null;
+    if (!group) return true;
+    const val = name === 'agree' ? '' : el.value;
+    const ok = validators[name] ? validators[name](val) : true;
+    group.classList.toggle('has-error', !ok);
+    return ok;
+  };
+
+  ['fname','email','service','budget','description'].forEach(name => {
+    const el = document.getElementById(name);
+    if (el) {
+      el.addEventListener('input', () => validateField(name));
+      el.addEventListener('change', () => validateField(name));
+    }
+  });
+  document.getElementById('agree')?.addEventListener('change', () => validateField('agree'));
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const fields = ['fname','email','service','budget','description','agree'];
+    let valid = true;
+    fields.forEach(f => { if (!validateField(f)) valid = false; });
+    if (!valid) {
+      const firstError = form.querySelector('.has-error input, .has-error select, .has-error textarea');
+      if (firstError) firstError.focus();
+      return;
+    }
+
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+    data.lang = currentLang;
+
+    await saveContactMessage(data);
+
+    submitBtn.classList.remove('loading');
+    submitBtn.disabled = false;
+    form.style.display = 'none';
+    successBox.classList.add('visible');
+  });
 }
-
-['fname','email','service','budget','description'].forEach(name => {
-  const el = document.getElementById(name);
-  if (el) {
-    el.addEventListener('input', () => validateField(name));
-    el.addEventListener('change', () => validateField(name));
-  }
-});
-document.getElementById('agree').addEventListener('change', () => validateField('agree'));
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const fields = ['fname','email','service','budget','description','agree'];
-  let valid = true;
-  fields.forEach(f => { if (!validateField(f)) valid = false; });
-  if (!valid) {
-    const firstError = form.querySelector('.has-error input, .has-error select, .has-error textarea');
-    if (firstError) firstError.focus();
-    return;
-  }
-
-  submitBtn.classList.add('loading');
-  submitBtn.disabled = true;
-
-  const fd = new FormData(form);
-  const data = Object.fromEntries(fd.entries());
-  data.lang = currentLang;
-
-  await saveContactMessage(data);
-
-  submitBtn.classList.remove('loading');
-  submitBtn.disabled = false;
-  form.style.display = 'none';
-  successBox.classList.add('visible');
-});
 
 /* ── Firebase: site config loader ── */
 const DEFAULT_TESTIMONIALS = [
