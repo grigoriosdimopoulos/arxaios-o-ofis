@@ -1,27 +1,10 @@
-/* ── EmailJS Coupon Config ──────────────────────────────────
-   Set up at https://www.emailjs.com  (free · 200 emails/month)
-
-   Quick setup:
-     1. Create account → Email Services → connect your Gmail
-     2. Email Templates → New Template.  Use these variables:
-          {{to_email}}    → recipient address (set as "To Email" field)
-          {{coupon_code}} → discount code shown in the email body
-     3. Account → General → Public Key → copy it
-     4. Replace the three placeholders below with your real values
-   ──────────────────────────────────────────────────────── */
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const COUPON_CODE         = 'UROBORU15';
-
-if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
-  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-}
+/* EmailJS config is in emailjs-config.js (loaded before this script) */
+const COUPON_CODE = 'UROBORU15';
 
 async function sendCouponEmail(toEmail) {
-  if (!window.emailjs || EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') return;
+  if (!window.emailjs || !window.EMAILJS_PK || window.EMAILJS_PK === 'YOUR_PUBLIC_KEY') return;
   try {
-    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    await emailjs.send(window.EMAILJS_SERVICE, window.EMAILJS_COUPON_TPL, {
       to_email:    toEmail,
       coupon_code: COUPON_CODE,
     });

@@ -33,8 +33,7 @@ function openOrder(pkg, price) {
 }
 
 function closeOrder() {
-  const modal = document.getElementById('orderModal');
-  modal.classList.remove('open');
+  document.getElementById('orderModal').classList.remove('open');
   document.body.style.overflow = '';
 }
 
@@ -48,7 +47,49 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeOrder();
 });
 
-/* Order form validation & submit */
+/* ── Save order to Firestore (shows in admin Inbox) ── */
+async function saveOrder(data) {
+  if (!window.db) return;
+  try {
+    await window.db.collection('messages').add({
+      type:        'order',
+      name:        data.name,
+      email:       data.email,
+      phone:       data.phone || '',
+      company:     data.company || '',
+      package:     data.package,
+      price:       data.price,
+      description: data.description || '',
+      notes:       data.notes || '',
+      lang:        window.currentLang || 'el',
+      read:        false,
+      timestamp:   firebase.firestore.FieldValue.serverTimestamp()
+    });
+  } catch (e) {
+    console.warn('[Uroboru] Order save failed:', e.message);
+  }
+}
+
+/* ── Email notification to admin via EmailJS ── */
+async function notifyAdmin(data) {
+  if (!window.emailjs || !window.EMAILJS_PK || window.EMAILJS_PK === 'YOUR_PUBLIC_KEY') return;
+  try {
+    await emailjs.send(window.EMAILJS_SERVICE, window.EMAILJS_ORDER_TPL, {
+      name:        data.name,
+      email:       data.email,
+      phone:       data.phone || 'N/A',
+      company:     data.company || 'N/A',
+      package:     data.package,
+      price:       data.price,
+      description: data.description || '',
+      notes:       data.notes || 'N/A',
+    });
+  } catch (e) {
+    console.warn('[Uroboru] Admin notification failed:', e.text || e.message);
+  }
+}
+
+/* ── Order form validation & submit ── */
 const orderValidators = {
   'o-fname': v => v.trim().length >= 2,
   'o-email': v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
@@ -78,7 +119,7 @@ document.getElementById('o-agree').addEventListener('change', () => validateOrde
 document.getElementById('orderForm').addEventListener('submit', async e => {
   e.preventDefault();
 
-  const fields = ['o-fname','o-email','o-desc','o-agree'];
+  const fields = ['o-fname', 'o-email', 'o-desc', 'o-agree'];
   let valid = true;
   fields.forEach(f => { if (!validateOrderField(f)) valid = false; });
   if (!valid) {
@@ -91,37 +132,25 @@ document.getElementById('orderForm').addEventListener('submit', async e => {
   btn.classList.add('loading');
   btn.disabled = true;
 
-  const pkg   = document.getElementById('o-package').value;
-  const price = document.getElementById('o-price').value;
-  const fname = document.getElementById('o-fname').value;
-  const email = document.getElementById('o-email').value;
-  const phone = document.getElementById('o-phone').value;
-  const company = document.getElementById('o-company').value;
-  const desc  = document.getElementById('o-desc').value;
-  const notes = document.getElementById('o-notes').value;
+  const data = {
+    name:        document.getElementById('o-fname').value.trim(),
+    email:       document.getElementById('o-email').value.trim(),
+    phone:       document.getElementById('o-phone').value.trim(),
+    company:     document.getElementById('o-company').value.trim(),
+    package:     document.getElementById('o-package').value,
+    price:       document.getElementById('o-price').value,
+    description: document.getElementById('o-desc').value.trim(),
+    notes:       document.getElementById('o-notes').value.trim(),
+  };
 
-  const body = [
-    `ORDER: ${pkg} — ${price}`,
-    ``,
-    `Full Name: ${fname}`,
-    `Email: ${email}`,
-    `Phone: ${phone || 'N/A'}`,
-    `Business: ${company || 'N/A'}`,
-    ``,
-    `Brief Description:`,
-    desc,
-    ``,
-    `Additional Notes:`,
-    notes || 'N/A',
-  ].join('\n');
+  /* Write to Firestore — appears in admin Inbox immediately */
+  await saveOrder(data);
 
-  await new Promise(r => setTimeout(r, 700));
+  /* Send email notification to grigoriosdimopoulos@urobor.us */
+  await notifyAdmin(data);
+
   btn.classList.remove('loading');
   btn.disabled = false;
-
-  const subject = encodeURIComponent(`Uroboru Office — Order: ${pkg} from ${fname}`);
-  const bodyEnc = encodeURIComponent(body);
-  window.location.href = `mailto:grigoriosdimopulos@gmail.com?subject=${subject}&body=${bodyEnc}`;
 
   document.getElementById('orderForm').style.display = 'none';
   document.getElementById('orderSuccess').classList.add('visible');
