@@ -636,7 +636,8 @@ async function loadSiteConfig() {
     const active = [];
     tSnap.forEach(doc => { const d = doc.data(); if (d.active !== false) active.push(d); });
     renderTestimonials(active.length ? active : DEFAULT_TESTIMONIALS);
-  } catch {
+  } catch (err) {
+    console.warn('[Uroboru] Site config load failed:', err.message);
     renderTestimonials(DEFAULT_TESTIMONIALS);
   }
 }

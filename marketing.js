@@ -1,3 +1,35 @@
+/* ── EmailJS Coupon Config ──────────────────────────────────
+   Set up at https://www.emailjs.com  (free · 200 emails/month)
+
+   Quick setup:
+     1. Create account → Email Services → connect your Gmail
+     2. Email Templates → New Template.  Use these variables:
+          {{to_email}}    → recipient address (set as "To Email" field)
+          {{coupon_code}} → discount code shown in the email body
+     3. Account → General → Public Key → copy it
+     4. Replace the three placeholders below with your real values
+   ──────────────────────────────────────────────────────── */
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const COUPON_CODE         = 'UROBORU15';
+
+if (window.emailjs && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+}
+
+async function sendCouponEmail(toEmail) {
+  if (!window.emailjs || EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') return;
+  try {
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      to_email:    toEmail,
+      coupon_code: COUPON_CODE,
+    });
+  } catch (e) {
+    console.warn('[Uroboru] Coupon email failed:', e.text || e.message);
+  }
+}
+
 /* ── Exit Intent Popup ── */
 (function () {
   const SESSION_KEY = 'exit_shown';
@@ -43,6 +75,8 @@
       if (emailIn) emailIn.style.borderColor = '#e07070';
       return;
     }
+
+    /* Save lead to Firestore */
     if (window.db) {
       try {
         await window.db.collection('leads').add({
@@ -53,6 +87,10 @@
         });
       } catch (e) {}
     }
+
+    /* Send coupon email via EmailJS */
+    sendCouponEmail(email);
+
     if (formWrap) formWrap.style.display = 'none';
     if (success)  success.classList.add('visible');
     setTimeout(hideExit, 2800);

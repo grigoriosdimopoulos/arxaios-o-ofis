@@ -6,8 +6,25 @@
   <title>Packages & Pricing — Uroboru Office</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <!-- Firebase compat SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
 </head>
 <body data-page="order">
+
+  <!-- PROMO BANNER -->
+  <div class="promo-banner" id="promoBanner">
+    <span class="promo-text"></span>
+    <button class="promo-banner-close" aria-label="Close">✕</button>
+  </div>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar">
+    <span class="announce-text"></span>
+    <button class="announcement-bar-close" aria-label="Close">✕</button>
+  </div>
 
   <!-- NAV -->
   <nav class="navbar scrolled" id="navbar">
